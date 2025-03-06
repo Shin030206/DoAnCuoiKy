@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InventoryUltimateWindow</class>
+ <widget class="QMainWindow" name="InventoryUltimateWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Inventory - Ultimate</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-image: url(:/images/inventory_background.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #E6FFFA;
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_main">
+    <!-- Danh mục (bên trái) -->
+    <item>
+     <widget class="QFrame" name="frameCategories">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QFrame {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 10px;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_categories">
+       <item>
+        <widget class="QLabel" name="labelCategoryTitle">
+         <property name="text">
+          <string>Danh mục</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignHCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QLabel {
+               font-size: 16px;
+               font-weight: bold;
+               margin: 5px;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidgetCategories">
+         <property name="styleSheet">
+          <string notr="true">
+           QListWidget {
+               background-color: #CCFFEE;
+               border: 1px solid #99FFDD;
+               border-radius: 5px;
+               padding: 5px;
+           }
+           QListWidget::item:selected {
+               background-color: #33CC99;
+               color: white;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Bảng sản phẩm trong kho (giữa) -->
+    <item>
+     <widget class="QTableWidget" name="tableWidgetInventory">
+      <property name="columnCount">
+       <number>5</number>
+      </property>
+      <property name="horizontalHeaderLabels">
+       <stringlist>
+        <string>Mã SP</string>
+        <string>Tên SP</string>
+        <string>Giá</string>
+        <string>Số lượng</string>
+        <string>Danh mục</string>
+       </stringlist>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QTableWidget {
+            background-color: #FFFFFF;
+            gridline-color: #AAAAAA;
+            border: 1px solid #CCCCCC;
+        }
+        QHeaderView::section {
+            background-color: #99FFDD;
+            font-weight: bold;
+        }
+       </string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Khu thông tin chi tiết (bên phải) -->
+    <item>
+     <widget class="QFrame" name="frameInfo">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QFrame {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin: 10px;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_info">
+       <item>
+        <widget class="QLabel" name="labelInfoTitle">
+         <property name="text">
+          <string>Thông tin sản phẩm</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignHCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QLabel {
+               font-size: 16px;
+               font-weight: bold;
+               margin: 5px;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QFormLayout" name="formLayoutInfo">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelCode">
+           <property name="text">
+            <string>Mã sản phẩm:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEditCode"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="labelName">
+           <property name="text">
+            <string>Tên sản phẩm:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEditName"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="labelPrice">
+           <property name="text">
+            <string>Giá:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEditPrice"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="labelQuantity">
+           <property name="text">
+            <string>Số lượng:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEditQuantity"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="labelCategory">
+           <property name="text">
+            <string>Mã danh mục:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEditCategory"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonNew">
+         <property name="text">
+          <string>New</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_newsale.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #33CC99;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #2FAE85;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonAdd">
+         <property name="text">
+          <string>Add</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_add.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #33CC99;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #2FAE85;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonRemove">
+         <property name="text">
+          <string>Remove</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_remove.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #FF6666;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #FF3333;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonClose">
+         <property name="text">
+          <string>Close</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_close.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #CCCCCC;
+               color: black;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #AAAAAA;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources_ultimate.qrc"/>
+ </resources>
+ <connections/>
+</ui>

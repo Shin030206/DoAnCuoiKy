@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SalesUltimateWindow</class>
+ <widget class="QMainWindow" name="SalesUltimateWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Sales - Ultimate</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-image: url(:/images/background_sales.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #FFF7E6; /* fallback */
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_main">
+
+    <!-- Khu vực sidebar (danh mục) -->
+    <item>
+     <widget class="QFrame" name="frameSidebar">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QFrame {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 10px;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_sidebar">
+       <item>
+        <widget class="QLabel" name="labelSidebarTitle">
+         <property name="text">
+          <string>Danh mục</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignHCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QLabel {
+               font-size: 16px;
+               font-weight: bold;
+               margin: 5px;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidgetCategories">
+         <property name="styleSheet">
+          <string notr="true">
+           QListWidget {
+               background-color: #FFEEDD;
+               border: 1px solid #FFCCAA;
+               border-radius: 5px;
+               padding: 5px;
+           }
+           QListWidget::item:selected {
+               background-color: #FFAA88;
+               color: white;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Khu vực hiển thị sản phẩm -->
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_products">
+      <!-- Tiêu đề Sản phẩm -->
+      <item>
+       <widget class="QLabel" name="labelProductTitle">
+        <property name="text">
+         <string>Sản phẩm</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignHCenter</set>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+          QLabel {
+              font-size: 16px;
+              font-weight: bold;
+              margin: 5px;
+          }
+         </string>
+        </property>
+       </widget>
+      </item>
+      <!-- Bảng sản phẩm -->
+      <item>
+       <widget class="QTableWidget" name="tableWidgetProducts">
+        <property name="columnCount">
+         <number>3</number>
+        </property>
+        <property name="horizontalHeaderLabels">
+         <stringlist>
+          <string>Tên SP</string>
+          <string>Giá</string>
+          <string>Hình ảnh</string>
+         </stringlist>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+          QTableWidget {
+              background-color: #FFFFFF;
+              border: 1px solid #CCCCCC;
+          }
+          QHeaderView::section {
+              background-color: #FFDDAA;
+              font-weight: bold;
+          }
+         </string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Khu vực Bill (giỏ hàng) -->
+    <item>
+     <widget class="QFrame" name="frameBill">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QFrame {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin: 10px;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_bill">
+       <item>
+        <widget class="QLabel" name="labelBillTitle">
+         <property name="text">
+          <string>Hóa đơn</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignHCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QLabel {
+               font-size: 16px;
+               font-weight: bold;
+               margin: 5px;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidgetBill">
+         <property name="styleSheet">
+          <string notr="true">
+           QListWidget {
+               background-color: #FFF0EE;
+               border: 1px solid #FFAAAA;
+               border-radius: 5px;
+               padding: 5px;
+           }
+           QListWidget::item:selected {
+               background-color: #FF8888;
+               color: white;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <!-- Các nút xử lý -->
+       <item>
+        <widget class="QPushButton" name="pushButtonNewSale">
+         <property name="text">
+          <string>New Sale</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_newsale.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #FFAA88;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+               font-weight: bold;
+           }
+           QPushButton:hover {
+               background-color: #FF8866;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonAddToBill">
+         <property name="text">
+          <string>Add to Bill</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_add.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #FFAA88;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+               font-weight: bold;
+           }
+           QPushButton:hover {
+               background-color: #FF8866;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonRemoveFromBill">
+         <property name="text">
+          <string>Remove from Bill</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_remove.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #FFAA88;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+               font-weight: bold;
+           }
+           QPushButton:hover {
+               background-color: #FF8866;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonCalculateTotal">
+         <property name="text">
+          <string>Calculate (VAT 8%)</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_calculate.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #FFAA88;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+               font-weight: bold;
+           }
+           QPushButton:hover {
+               background-color: #FF8866;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonGoInventory">
+         <property name="text">
+          <string>Go to Inventory</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_inventory.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #CCBBFF;
+               color: black;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #9988FF;
+               color: white;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources_ultimate.qrc"/>
+ </resources>
+ <connections/>
+</ui>

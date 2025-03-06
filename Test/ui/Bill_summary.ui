@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BillSummaryUltimateWindow</class>
+ <widget class="QMainWindow" name="BillSummaryUltimateWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Bill Summary - Ultimate</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-image: url(:/images/bill_background.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #F5F5FF;
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_main">
+    <!-- Tiêu đề -->
+    <item>
+     <widget class="QLabel" name="labelTitle">
+      <property name="text">
+       <string>TỔNG HỢP BILL</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignHCenter</set>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QLabel {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px;
+        }
+       </string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Bảng Bill -->
+    <item>
+     <widget class="QTableWidget" name="tableWidgetBills">
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <property name="horizontalHeaderLabels">
+       <stringlist>
+        <string>Mã Bill</string>
+        <string>Thời gian</string>
+        <string>Nhân viên</string>
+        <string>Tổng tiền</string>
+       </stringlist>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QTableWidget {
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCFF;
+            gridline-color: #BBBBFF;
+        }
+        QHeaderView::section {
+            background-color: #DDDDEE;
+            font-weight: bold;
+        }
+       </string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Có thể thêm khu vực chi tiết, lọc thời gian, v.v. -->
+    <item>
+     <widget class="QFrame" name="frameBottom">
+      <property name="styleSheet">
+       <string notr="true">
+        QFrame {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 10px;
+        }
+       </string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_bottom">
+       <!-- Ví dụ: Nút close -->
+       <item>
+        <widget class="QPushButton" name="pushButtonClose">
+         <property name="text">
+          <string>Close</string>
+         </property>
+         <property name="icon">
+          <iconset resource="true">
+           <normaloff>:/images/icon_close.png</normaloff>
+          </iconset>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #CCCCCC;
+               color: black;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #AAAAAA;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_bottom">
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources_ultimate.qrc"/>
+ </resources>
+ <connections/>
+</ui>

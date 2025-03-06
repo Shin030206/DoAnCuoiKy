@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginUltimateWindow</class>
+ <widget class="QMainWindow" name="LoginUltimateWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Login - Ultimate</string>
+  </property>
+  <!-- Đặt ảnh nền hoặc gradient -->
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        /* Ảnh nền login */
+        background-image: url(:/images/background_login.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #F8F8F8; /* fallback nếu ảnh không load */
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <!-- Dùng layout dọc chính -->
+   <layout class="QVBoxLayout" name="verticalLayout_main">
+    <!-- Logo + Tựa đề -->
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_header">
+      <item>
+       <spacer name="horizontalSpacer_logo">
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelLogo">
+        <property name="pixmap">
+         <pixmap resource="true">:/images/logo.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_logo_2">
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Tiêu đề -->
+    <item>
+     <widget class="QLabel" name="labelTitle">
+      <property name="text">
+       <string>ĐĂNG NHẬP HỆ THỐNG</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignHCenter</set>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QLabel {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333333;
+        }
+       </string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Frame chứa form đăng nhập -->
+    <item>
+     <widget class="QFrame" name="frameLogin">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QFrame {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 20px;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_frame">
+       <item>
+        <widget class="QLineEdit" name="lineEditUsername">
+         <property name="placeholderText">
+          <string>Tên đăng nhập...</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QLineEdit {
+               border: 1px solid #CCCCCC;
+               border-radius: 5px;
+               padding: 5px;
+           }
+           QLineEdit:focus {
+               border: 1px solid #6666FF;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditPassword">
+         <property name="placeholderText">
+          <string>Mật khẩu...</string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QLineEdit {
+               border: 1px solid #CCCCCC;
+               border-radius: 5px;
+               padding: 5px;
+           }
+           QLineEdit:focus {
+               border: 1px solid #6666FF;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <!-- Nút Đăng nhập -->
+       <item>
+        <widget class="QPushButton" name="pushButtonLogin">
+         <property name="text">
+          <string>Đăng nhập</string>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #3399FF;
+               color: white;
+               border-radius: 5px;
+               padding: 8px;
+               font-weight: bold;
+           }
+           QPushButton:hover {
+               background-color: #1A8CFF;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+       <!-- Nút Thoát -->
+       <item>
+        <widget class="QPushButton" name="pushButtonExit">
+         <property name="text">
+          <string>Thoát</string>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #EEEEEE;
+               color: #333333;
+               border-radius: 5px;
+               padding: 8px;
+           }
+           QPushButton:hover {
+               background-color: #DDDDDD;
+           }
+          </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources_ultimate.qrc"/>
+ </resources>
+ <connections/>
+</ui>
