@@ -1,0 +1,71 @@
+# DoAnCuoiKy
+# Thành viên(4):
+ - Nguyễn Ngọc Khánh(Leader)
+ - Nguyễn Mạnh Hùng
+ - Huỳnh Nhật Đăng
+ - Trương Thanh Phong
+# Phần mềm thêm, bán sản phẩm và quản lí kho hàng Jolibee
+- Thành phần:
+  - Màn hình đăng nhập cho nhân viên bán hàng:
+    - Nút đăng nhập
+    - Nút thoát
+  - Màn hình bán hàng:
+    - Danh mục hàng(QList)
+    - Sản phẩm ứng với từng danh mục(QTable):
+      - Mã sản phẩm
+      - Tên sản phẩm
+      - Giá
+      - Hình ảnh sản phẩm tương ứng
+    - Khu vực hiển thị sản phẩm đã chọn(QList)
+    - Nút bán mới(new)
+    - Nút thêm sản phẩm vào bill(add)
+    - Nút xoá sản phẩm khỏi bill(remove)
+    - Nút vào kho hàng
+  - Màn hình kho hàng:
+    - Danh mục(QList)
+    - Sản phẩm ứng với từng danh mục(QTable)
+    - Thông tin sản phẩm(QGroupBox):
+      - Mã sản phẩm(QLineEdit)
+      - Tên sản phẩm(QLineEdit)
+      - Giá(QLineEdit)
+      - Số lượng(QLineEdit)
+      - Mã danh mục(QLineEdit)
+    - Nút thêm sản phẩm(New)
+    - Nút xoá sản phẩm(Remove)
+    - Nút thoát(Close)
+- Chi tiết:
+  - Màn hình đăng nhập:
+      - Nhập thông tin đăng nhập:
+        - Nếu đúng thì sẽ vào được màn hình bán hàng
+        - Sai thì sẽ báo sai thông tin và trở về màn hình đăng nhập
+      -Thoát chương trình
+  - Màn hình bán hàng:
+    - Danh mục hiển thị toàn bộ danh mục bán hàng:
+      - Khi bấm vào các danh mục sẽ hiển thị sản phẩm có cùng danh mục trong khu vực sản phẩm
+    - Khu vực sản phẩm:
+      - Hiển thị sản phẩm
+      - bấm vào từng sản phẩm để chọn
+    - Khu vực bill:
+      - Bấm new để xoá các sản phẩm trong bill
+      - khi 1 sản phẩm trong khu vực sản phẩm được chọn, bấm add để thêm 1 số lượng vào bill, remove để xoá 1 số lượng
+      - nút tính để tính tổng tiền( có VAT 8%)
+      - Nút kho để chuyển qua màn hình kho
+  - Màn hình kho hàng:
+    - khu danh mục(như màn hình bán hàng)
+    - khu sản phẩm:
+      - hiển thị số lượng còn lại trong kho(=số lượng ban đầu thêm vào-số lượng của từng lượt bán)
+      - có thể chọn từng sản phẩm
+    - khu thông tin sản phẩm:
+      - chọn sản phẩm sẽ hiện thông tin:
+        - mã sản phẩm
+        - tên sản phẩm
+        - giá
+        - số lượng
+        - mã danh mục
+      - nút mới để xoá thôn tin trong khu vực thông tin
+      - nút thêm để thêm sản phẩm vào kho:
+        - xét mã danh mục xem có trừng vào danh mục nào thì sẽ thêm sản phẩm vào danh mục đó:
+          - nếu sản phẩm có mã mới không giống với bất kỳ sản phẩm cũ nào thì sẽ thêm sản phẩm mới
+          - nếu mã sản phẩm trùng với 1 sản phẩm bất kỳ thì sẽ cộng dồn số lượng mới và số lượng cũ vào sản phẩm tương ứng
+      - nút xoá để xoá sản phẩm đã 
+      - nút thoát để trở về màn hình bán hàng
