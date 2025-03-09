@@ -39,7 +39,8 @@
     font-weight: bold;
     color:rgb(0,0,0);
     margin: 10px;
-    background-color: rgba(255,255,255,0.6);
+    
+	background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 5px 10px;
     border: 2px solid #000000; /* Viền đen */
@@ -61,7 +62,8 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QFrame {
-    background-color: rgba(255, 255, 255, 0.8);
+    
+	background-color: rgb(255, 255, 255);
     border: 2px solid #FF0000; /* Màu đỏ */
     border-radius: 10px;
     margin: 10px;
@@ -83,7 +85,8 @@
                  font-size: 16px;
                  font-weight: bold;
                  margin: 5px;
-	color: rgb(252, 1, 7);
+	
+	color: rgb(0, 0, 0);
              }
             </string>
        </property>
@@ -94,6 +97,11 @@
      </item>
      <item>
       <widget class="QListWidget" name="listWidgetCategory">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">color:rgb(0,0,0);
 alternate-background-color: rgb(255, 255, 255);
@@ -114,7 +122,8 @@ alternate-background-color: rgb(255, 255, 255);
     </property>
     <property name="styleSheet">
      <string notr="true">QFrame {
-    background-color: rgba(255, 255, 255, 0.8);
+	
+	background-color: rgb(255, 255, 255);
     border: 2px solid #205781; /* Màu đỏ */
     border-radius: 10px;
     margin: 10px;
@@ -133,7 +142,7 @@ alternate-background-color: rgb(255, 255, 255);
        <x>30</x>
        <y>20</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -147,10 +156,15 @@ alternate-background-color: rgb(255, 255, 255);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>80</y>
+       <y>70</y>
        <width>341</width>
-       <height>561</height>
+       <height>571</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color:rgb(0,0,0)</string>
@@ -168,8 +182,9 @@ alternate-background-color: rgb(255, 255, 255);
     </property>
     <property name="styleSheet">
      <string notr="true">QFrame {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #EFB036; /* Màu đỏ */
+   
+	background-color: rgb(255, 255, 255);
+    border: 2px solid #353924; /* Màu đỏ */
     border-radius: 10px;
     margin: 10px;
 }
@@ -184,11 +199,18 @@ alternate-background-color: rgb(255, 255, 255);
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>30</x>
        <y>20</y>
        <width>351</width>
        <height>101</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">
@@ -221,9 +243,14 @@ color:rgb(0,0,0)
        <rect>
         <x>0</x>
         <y>20</y>
-        <width>121</width>
+        <width>131</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color:rgb(0,0,0)</string>
@@ -241,9 +268,14 @@ color:rgb(0,0,0)
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit {
-    border: 2px solid #FFD700; /* #FFD700 là mã màu vàng (Gold) */
+    border: 2px solid #353924; /* #FFD700 là mã màu vàng (Gold) */
     border-radius: 5px;
     background-color: #FFFFFF; /* nền trắng */;
 color:rgb(0,0,0)
@@ -255,9 +287,14 @@ color:rgb(0,0,0)
        <rect>
         <x>0</x>
         <y>80</y>
-        <width>121</width>
+        <width>131</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color:rgb(0,0,0)</string>
@@ -271,9 +308,14 @@ color:rgb(0,0,0)
        <rect>
         <x>0</x>
         <y>140</y>
-        <width>121</width>
+        <width>91</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color:rgb(0,0,0)</string>
@@ -291,6 +333,11 @@ color:rgb(0,0,0)
         <height>51</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">color:rgb(0,0,0)</string>
       </property>
@@ -303,9 +350,14 @@ color:rgb(0,0,0)
        <rect>
         <x>0</x>
         <y>250</y>
-        <width>121</width>
+        <width>131</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color:rgb(0,0,0)</string>
@@ -323,9 +375,14 @@ color:rgb(0,0,0)
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit {
-    border: 2px solid #FFD700; /* #FFD700 là mã màu vàng (Gold) */
+    border: 2px solid #353924; /* #FFD700 là mã màu vàng (Gold) */
     border-radius: 5px;
     background-color: #FFFFFF; /* nền trắng */;
 color:rgb(0,0,0)
@@ -341,9 +398,14 @@ color:rgb(0,0,0)
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit {
-    border: 2px solid #FFD700; /* #FFD700 là mã màu vàng (Gold) */
+    border: 2px solid #353924; /* #FFD700 là mã màu vàng (Gold) */
     border-radius: 5px;
     background-color: #FFFFFF; /* nền trắng */;
 color:rgb(0,0,0)
@@ -359,9 +421,14 @@ color:rgb(0,0,0)
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit {
-    border: 2px solid #FFD700; /* #FFD700 là mã màu vàng (Gold) */
+    border: 2px solid #353924; /* #FFD700 là mã màu vàng (Gold) */
     border-radius: 5px;
     background-color: #FFFFFF; /* nền trắng */;
 color:rgb(0,0,0)
@@ -377,9 +444,14 @@ color:rgb(0,0,0)
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit {
-    border: 2px solid #FFD700; /* #FFD700 là mã màu vàng (Gold) */
+    border: 2px solid #353924; /* #FFD700 là mã màu vàng (Gold) */
     border-radius: 5px;
     background-color: #FFFFFF; /* nền trắng */;
 color:rgb(0,0,0)
@@ -429,16 +501,16 @@ color:rgb(0,0,0)
       <string notr="true">QPushButton {
 	font: 12pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-                 background-color: #FFC374;
+                 background-color: #A7D0D6;
                  color:rgb(0,0,0);
                  border-radius: 5px;
                  padding: 8px;
              }
              QPushButton:hover {
-                 background-color: #FFC374;
+                 background-color: #A7D0D6;
              }
              QPushButton:pressed {
-                 background-color: #497D74;
+                 background-color: #A7D0D6;
              }</string>
      </property>
      <property name="text">
@@ -454,11 +526,16 @@ color:rgb(0,0,0)
        <height>41</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
                  background-color: #FF6666;
-                 color: white;
+                 color: black;
                  border-radius: 5px;
                  padding: 8px;
              }
@@ -483,11 +560,17 @@ color:rgb(0,0,0)
        <height>41</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
                  background-color: #CCCCCC;
-                 color:rgb(0,0,0);
+                 
+	color: rgb(0, 0, 0);
                  border-radius: 5px;
                  padding: 8px;
              }
@@ -511,7 +594,7 @@ color:rgb(0,0,0)
      <x>0</x>
      <y>0</y>
      <width>1153</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
