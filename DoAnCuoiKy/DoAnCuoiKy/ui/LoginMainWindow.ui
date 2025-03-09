@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../Download/Thiết kế chưa có tên.png</pixmap>
+     <pixmap>../../../../../Download/Thiết kế chưa có tên.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -71,6 +71,8 @@ color: rgb(0,0,0)</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 15px;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 </string>
     </property>
     <property name="placeholderText">
@@ -120,6 +122,8 @@ color: rgb(0,0,0)</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 15px;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 </string>
     </property>
     <property name="text">
@@ -318,7 +322,7 @@ color: rgb(0,0,0)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
