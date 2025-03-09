@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1221</width>
-    <height>764</height>
+    <height>761</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,10 +29,11 @@
     <property name="styleSheet">
      <string notr="true">  QFrame {
               background-color: rgba(255, 255, 255, 0.8);
-              border: 2px solid #FFD1BA;
+              border: 2px solid #205781;
               border-radius: 10px;
               margin: 10px;
           }
+	color: rgb(255, 255, 255);
          </string>
     </property>
     <property name="frameShape">
@@ -62,7 +63,7 @@ color: rgb(252, 1, 7);
       <widget class="QListWidget" name="listWidgetCategory">
        <property name="styleSheet">
         <string notr="true">border-radius: 15px;
-background-color: #F2F6D0;
+background-color: #DED0BA;
 color: rgb(0, 0, 0);</string>
        </property>
       </widget>
@@ -79,17 +80,18 @@ color: rgb(0, 0, 0);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-        QLabel {
-            font-size: 24px;
-            font-weight: bold;
-            color: #444444;
-            margin: 10px;
-            background-color: rgba(255,255,255,0.6);
-            border-radius: 10px;
-            padding: 5px 10px;
-        }
-       </string>
+     <string notr="true">QLabel {
+    font-size: 24px;
+    font-weight: bold;
+    color: #444444;
+    margin: 10px;
+    
+	background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 2px solid black;  /* Thêm viền màu đen */
+}
+</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Màn hình bán hàng&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -108,11 +110,12 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">
           QFrame {
               background-color: rgba(255, 255, 255, 0.8);
-              border: 2px solid #FFD1BA;
+              border: 2px solid #205781;
               border-radius: 10px;
               margin: 10px;
           }
-         </string>
+        
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -140,7 +143,7 @@ color: rgb(252, 1, 7);
       <widget class="QTableWidget" name="tableWidgetProduct">
        <property name="styleSheet">
         <string notr="true">border-radius: 15px;
-background-color: rgb(222, 254, 255);
+background-color: #DCE4B8;
 color: rgb(0, 0, 0);</string>
        </property>
        <column>
@@ -165,7 +168,7 @@ color: rgb(0, 0, 0);</string>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>760</x>
       <y>80</y>
       <width>371</width>
       <height>611</height>
@@ -175,11 +178,12 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">
           QFrame {
               background-color: rgba(255, 255, 255, 0.9);
-              border: 2px solid #FFAAAA;
+              border: 2px solid #205781;
               border-radius: 10px;
               margin: 10px;
           }
-         </string>
+        
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -220,7 +224,7 @@ color: rgb(252, 1, 7);
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 237, 255);
-background-color: #FFCFCF;</string>
+background-color: #F4F2EF;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButtonNewSales">
@@ -235,14 +239,14 @@ background-color: #FFCFCF;</string>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
-                 background-color: #FFAA88;
+                 background-color: #CC7952;
                  color: white;
                  border-radius: 5px;
                  padding: 8px;
                  font-weight: bold;
              }
              QPushButton:hover {
-                 background-color: #FF8866;
+                 background-color: #CC7952;
              }
              QPushButton:pressed {
                  background-color: #FF6644;
@@ -265,17 +269,17 @@ background-color: #FFCFCF;</string>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
-                 background-color: #FFAA88;
+                 background-color: #CC7952;
                  color: white;
                  border-radius: 5px;
                  padding: 8px;
                  font-weight: bold;
              }
              QPushButton:hover {
-                 background-color: #FF8866;
+                 background-color: #CC7952;
              }
              QPushButton:pressed {
-                 background-color: #FF6644;
+                 background-color: #CC7952;
              }
             </string>
      </property>
@@ -295,17 +299,17 @@ background-color: #FFCFCF;</string>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
-                 background-color: #FFAA88;
+                 background-color: #CC7952;
                  color: white;
                  border-radius: 5px;
                  padding: 8px;
                  font-weight: bold;
              }
              QPushButton:hover {
-                 background-color: #FF8866;
+                 background-color: #CC7952;
              }
              QPushButton:pressed {
-                 background-color: #FF6644;
+                 background-color: #CC7952;
              }
             </string>
      </property>
@@ -325,17 +329,17 @@ background-color: #FFCFCF;</string>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
-                 background-color: #FFAA88;
+                 background-color: #CC7952;
                  color: white;
                  border-radius: 5px;
                  padding: 8px;
                  font-weight: bold;
              }
              QPushButton:hover {
-                 background-color: #FF8866;
+                 background-color: #CC7952;
              }
              QPushButton:pressed {
-                 background-color: #FF6644;
+                 background-color: #CC7952;
              }
             </string>
      </property>
@@ -355,17 +359,17 @@ background-color: #FFCFCF;</string>
      <property name="styleSheet">
       <string notr="true">
              QPushButton {
-                 background-color: #CCBBFF;
-                 color: black;
+                 background-color: #213E60;
+                 color: white;
                  border-radius: 5px;
                  padding: 8px;
              }
              QPushButton:hover {
-                 background-color: #9988FF;
+                 background-color: #213E60;
                  color: white;
              }
              QPushButton:pressed {
-                 background-color: #7766DD;
+                 background-color: #213E60
              }
             </string>
      </property>
@@ -381,7 +385,7 @@ background-color: #FFCFCF;</string>
      <x>0</x>
      <y>0</y>
      <width>1221</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
