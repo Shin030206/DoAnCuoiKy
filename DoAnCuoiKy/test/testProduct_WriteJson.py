@@ -4,7 +4,7 @@ from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
 from DoAnCuoiKy.models.Product import Product
 
 products=[]
-for i in range(1,1001):
+for i in range(1,101):
     proid=f'P{i}'
     proname=f'Product {i}'
     price=random.randrange(10,1000)
