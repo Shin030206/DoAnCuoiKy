@@ -52,10 +52,10 @@ class Ui_MainWindow(object):
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
-        self.dateEdit = QtWidgets.QDateEdit(parent=self.frame)
-        self.dateEdit.setGeometry(QtCore.QRect(109, 40, 111, 41))
-        self.dateEdit.setStyleSheet("color: rgb(0, 0, 0);")
-        self.dateEdit.setObjectName("dateEdit")
+        self.dateEditFrom = QtWidgets.QDateEdit(parent=self.frame)
+        self.dateEditFrom.setGeometry(QtCore.QRect(109, 40, 111, 41))
+        self.dateEditFrom.setStyleSheet("color: rgb(0, 0, 0);")
+        self.dateEditFrom.setObjectName("dateEditFrom")
         self.label_2 = QtWidgets.QLabel(parent=self.frame)
         self.label_2.setGeometry(QtCore.QRect(10, 30, 101, 61))
         self.label_2.setStyleSheet("color: rgb(0, 0, 0);\n"
@@ -66,13 +66,13 @@ class Ui_MainWindow(object):
         self.label_3.setStyleSheet("color: rgb(0, 0, 0);\n"
 "font: 10pt \"MS Shell Dlg 2\";")
         self.label_3.setObjectName("label_3")
-        self.dateEdit_2 = QtWidgets.QDateEdit(parent=self.frame)
-        self.dateEdit_2.setGeometry(QtCore.QRect(329, 40, 111, 41))
-        self.dateEdit_2.setStyleSheet("color: rgb(0, 0, 0);")
-        self.dateEdit_2.setObjectName("dateEdit_2")
-        self.pushButton_3 = QtWidgets.QPushButton(parent=self.frame)
-        self.pushButton_3.setGeometry(QtCore.QRect(460, 40, 81, 41))
-        self.pushButton_3.setStyleSheet("QPushButton {\n"
+        self.dateEditTo = QtWidgets.QDateEdit(parent=self.frame)
+        self.dateEditTo.setGeometry(QtCore.QRect(329, 40, 111, 41))
+        self.dateEditTo.setStyleSheet("color: rgb(0, 0, 0);")
+        self.dateEditTo.setObjectName("dateEditTo")
+        self.pushButtonLoc = QtWidgets.QPushButton(parent=self.frame)
+        self.pushButtonLoc.setGeometry(QtCore.QRect(460, 40, 81, 41))
+        self.pushButtonLoc.setStyleSheet("QPushButton {\n"
 "    font: 10pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
 "                 background-color: #FEAE6F;\n"
@@ -86,10 +86,10 @@ class Ui_MainWindow(object):
 "             QPushButton:pressed {\n"
 "                 background-color: #AAB99A;\n"
 "             }")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.pushButton = QtWidgets.QPushButton(parent=self.groupBox)
-        self.pushButton.setGeometry(QtCore.QRect(570, 30, 411, 61))
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.pushButtonLoc.setObjectName("pushButtonLoc")
+        self.pushButtonExport = QtWidgets.QPushButton(parent=self.groupBox)
+        self.pushButtonExport.setGeometry(QtCore.QRect(570, 30, 411, 61))
+        self.pushButtonExport.setStyleSheet("QPushButton {\n"
 "    font: 12pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
 "                 background-color: #AAB99A;\n"
@@ -103,7 +103,7 @@ class Ui_MainWindow(object):
 "             QPushButton:pressed {\n"
 "                 background-color: #AAB99A;\n"
 "             }")
-        self.pushButton.setObjectName("pushButton")
+        self.pushButtonExport.setObjectName("pushButtonExport")
         self.frame_2 = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(20, 230, 1001, 371))
         self.frame_2.setStyleSheet("\n"
@@ -123,22 +123,22 @@ class Ui_MainWindow(object):
         self.label_4.setStyleSheet("font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 0, 0);")
         self.label_4.setObjectName("label_4")
-        self.tableWidget = QtWidgets.QTableWidget(parent=self.frame_2)
-        self.tableWidget.setGeometry(QtCore.QRect(30, 80, 941, 271))
-        self.tableWidget.setStyleSheet("border-radius: 15px;\n"
+        self.tableWidgetDanhSachBill = QtWidgets.QTableWidget(parent=self.frame_2)
+        self.tableWidgetDanhSachBill.setGeometry(QtCore.QRect(30, 80, 941, 271))
+        self.tableWidgetDanhSachBill.setStyleSheet("border-radius: 15px;\n"
 "background-color: #D8D2C2;\n"
 "color: rgb(0, 0, 0);")
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(4)
-        self.tableWidget.setRowCount(0)
+        self.tableWidgetDanhSachBill.setObjectName("tableWidgetDanhSachBill")
+        self.tableWidgetDanhSachBill.setColumnCount(4)
+        self.tableWidgetDanhSachBill.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
+        self.tableWidgetDanhSachBill.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableWidgetDanhSachBill.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
+        self.tableWidgetDanhSachBill.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
+        self.tableWidgetDanhSachBill.setHorizontalHeaderItem(3, item)
         self.frame_3 = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(40, 610, 961, 71))
         self.frame_3.setStyleSheet("background-color: #7E99A3;")
@@ -159,18 +159,18 @@ class Ui_MainWindow(object):
 "        \n"
 "background-color: rgb(255, 255, 255);")
         self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(parent=self.frame_3)
-        self.label_6.setGeometry(QtCore.QRect(320, 10, 591, 41))
-        self.label_6.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.labelTienDoanhThu = QtWidgets.QLabel(parent=self.frame_3)
+        self.labelTienDoanhThu.setGeometry(QtCore.QRect(320, 10, 591, 41))
+        self.labelTienDoanhThu.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 " font-size: 16px;\n"
 " color: #AA0000;\n"
 "  font-weight: bold;\n"
 "   margin-left: 5px;\n"
 "          ")
-        self.label_6.setObjectName("label_6")
-        self.pushButton_4 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(410, 700, 211, 51))
-        self.pushButton_4.setStyleSheet("\n"
+        self.labelTienDoanhThu.setObjectName("labelTienDoanhThu")
+        self.pushButtonXemChiTiet = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButtonXemChiTiet.setGeometry(QtCore.QRect(410, 700, 211, 51))
+        self.pushButtonXemChiTiet.setStyleSheet("\n"
 "             QPushButton {\n"
 "                 background-color: #FF6666;\n"
 "                \n"
@@ -186,10 +186,10 @@ class Ui_MainWindow(object):
 "                 background-color: #CC0000;\n"
 "             }\n"
 "            ")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.pushButton_5 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(700, 700, 231, 51))
-        self.pushButton_5.setStyleSheet("\n"
+        self.pushButtonXemChiTiet.setObjectName("pushButtonXemChiTiet")
+        self.pushButtonClose = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButtonClose.setGeometry(QtCore.QRect(700, 700, 231, 51))
+        self.pushButtonClose.setStyleSheet("\n"
 "             QPushButton {\n"
 "                 background-color: #B7B7B7;\n"
 "                \n"
@@ -207,12 +207,12 @@ class Ui_MainWindow(object):
 "            ")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_5.setIcon(icon)
-        self.pushButton_5.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(110, 700, 211, 51))
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
+        self.pushButtonClose.setIcon(icon)
+        self.pushButtonClose.setIconSize(QtCore.QSize(30, 30))
+        self.pushButtonClose.setObjectName("pushButtonClose")
+        self.pushButtonTinhDoanhThu = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButtonTinhDoanhThu.setGeometry(QtCore.QRect(110, 700, 211, 51))
+        self.pushButtonTinhDoanhThu.setStyleSheet("QPushButton {\n"
 "    font: 14pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
 "                 background-color: #FFAB5B;\n"
@@ -228,9 +228,9 @@ class Ui_MainWindow(object):
 "             }")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_2.setIcon(icon1)
-        self.pushButton_2.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButtonTinhDoanhThu.setIcon(icon1)
+        self.pushButtonTinhDoanhThu.setIconSize(QtCore.QSize(30, 30))
+        self.pushButtonTinhDoanhThu.setObjectName("pushButtonTinhDoanhThu")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1042, 26))
@@ -249,21 +249,19 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">Tổng hợp Bill</span></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "Từ ngày"))
         self.label_3.setText(_translate("MainWindow", "Đến ngày:"))
-        self.pushButton_3.setText(_translate("MainWindow", "Lọc"))
-        self.pushButton.setText(_translate("MainWindow", "Xuất WORD/ PDF"))
+        self.pushButtonLoc.setText(_translate("MainWindow", "Lọc"))
+        self.pushButtonExport.setText(_translate("MainWindow", "Xuất WORD/ PDF"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">Danh sách Bill</span></p></body></html>"))
-        item = self.tableWidget.horizontalHeaderItem(0)
+        item = self.tableWidgetDanhSachBill.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
-        item = self.tableWidget.horizontalHeaderItem(1)
+        item = self.tableWidgetDanhSachBill.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
-        item = self.tableWidget.horizontalHeaderItem(2)
+        item = self.tableWidgetDanhSachBill.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "3"))
-        item = self.tableWidget.horizontalHeaderItem(3)
+        item = self.tableWidgetDanhSachBill.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "4"))
         self.label_5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Tổng doanh thu</p></body></html>"))
-        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">0 VND</span></p></body></html>"))
-        self.pushButton_4.setText(_translate("MainWindow", "Xem chi tiết"))
-        self.pushButton_5.setText(_translate("MainWindow", "Close"))
-        self.pushButton_2.setText(_translate("MainWindow", "Tính doanh thu"))
-
-
+        self.labelTienDoanhThu.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">0 VND</span></p></body></html>"))
+        self.pushButtonXemChiTiet.setText(_translate("MainWindow", "Xem chi tiết"))
+        self.pushButtonClose.setText(_translate("MainWindow", "Close"))
+        self.pushButtonTinhDoanhThu.setText(_translate("MainWindow", "Tính doanh thu"))
