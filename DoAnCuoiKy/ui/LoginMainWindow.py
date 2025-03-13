@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\LoginMainWindow.ui'
+# Form implementation generated from reading ui file 'D:\Kĩ Thuật Lập Trình\ĐoAnCuoiKy\DoAnCuoiKy\DoAnCuoiKy\ui\LoginMainWindow.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
@@ -12,56 +12,89 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1143, 755)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(50, 70, 700, 431))
+        self.label.setGeometry(QtCore.QRect(10, 90, 1111, 561))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(".\\../../../../../Download/Thiết kế chưa có tên.png"))
+        self.label.setPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/Thiết kế chưa có tên.jpg"))
+        self.label.setScaledContents(True)
         self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(210, 80, 401, 71))
+        self.frame = QtWidgets.QFrame(parent=self.centralwidget)
+        self.frame.setGeometry(QtCore.QRect(660, 130, 411, 471))
+        self.frame.setStyleSheet("background-color: #686D76;\n"
+" border-radius: 20px;")
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame.setObjectName("frame")
+        self.label_2 = QtWidgets.QLabel(parent=self.frame)
+        self.label_2.setGeometry(QtCore.QRect(10, 10, 391, 51))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
-        font.setPointSize(22)
+        font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(9)
         self.label_2.setFont(font)
         self.label_2.setStyleSheet("background-color: white;\n"
-"font: 15pt \".AppleSystemUIFont\";\n"
-"font: 75 22pt \"MS Shell Dlg 2\";\n"
-"font: 22pt \"MS Shell Dlg 2\";\n"
+"font: 75 16pt \"MS Shell Dlg 2\";\n"
 "border-radius: 15px;\n"
-"color: rgb(0,0,0)")
+"color: rgb(0,0,0);\n"
+"border: 2px solid black;\n"
+"")
         self.label_2.setObjectName("label_2")
-        self.lineEditUserName = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.lineEditUserName.setGeometry(QtCore.QRect(250, 190, 341, 31))
+        self.lineEditUserName = QtWidgets.QLineEdit(parent=self.frame)
+        self.lineEditUserName.setGeometry(QtCore.QRect(20, 130, 361, 41))
         self.lineEditUserName.setStyleSheet("border-radius: 15px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "")
         self.lineEditUserName.setObjectName("lineEditUserName")
-        self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(60, 180, 191, 41))
-        self.label_3.setStyleSheet("font: 75 14pt \"MS Shell Dlg 2\";")
-        self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(60, 250, 131, 31))
-        self.label_4.setStyleSheet("font: 75 14pt \"MS Shell Dlg 2\";")
-        self.label_4.setObjectName("label_4")
-        self.lineEditPassword = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.lineEditPassword.setGeometry(QtCore.QRect(250, 250, 341, 31))
+        self.lineEditPassword = QtWidgets.QLineEdit(parent=self.frame)
+        self.lineEditPassword.setGeometry(QtCore.QRect(20, 220, 361, 41))
         self.lineEditPassword.setStyleSheet("border-radius: 15px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "")
-        self.lineEditPassword.setText("")
         self.lineEditPassword.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.lineEditPassword.setObjectName("lineEditPassword")
-        self.pushButtonLogin = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButtonLogin.setGeometry(QtCore.QRect(190, 410, 171, 41))
+        self.radioButtonStaff = QtWidgets.QRadioButton(parent=self.frame)
+        self.radioButtonStaff.setGeometry(QtCore.QRect(70, 290, 81, 31))
+        self.radioButtonStaff.setStyleSheet("font: 12pt \"MS Shell Dlg 2\";\n"
+"font: 13pt \".AppleSystemUIFont\";\n"
+"border-color: rgb(255, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px;\n"
+"color: rgb(0,0,0)")
+        self.radioButtonStaff.setObjectName("radioButtonStaff")
+        self.radioButtonManager = QtWidgets.QRadioButton(parent=self.frame)
+        self.radioButtonManager.setGeometry(QtCore.QRect(230, 290, 111, 31))
+        self.radioButtonManager.setStyleSheet("font: 12pt \"MS Shell Dlg 2\";\n"
+"font: 13pt \".AppleSystemUIFont\";\n"
+"border-color: rgb(255, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px;\n"
+"color: rgb(0,0,0)")
+        self.radioButtonManager.setObjectName("radioButtonManager")
+        self.checkBoxSavePassWord = QtWidgets.QCheckBox(parent=self.frame)
+        self.checkBoxSavePassWord.setGeometry(QtCore.QRect(120, 340, 171, 31))
+        self.checkBoxSavePassWord.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px;\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0,0,0)\n"
+"")
+        self.checkBoxSavePassWord.setObjectName("checkBoxSavePassWord")
+        self.label_6 = QtWidgets.QLabel(parent=self.frame)
+        self.label_6.setGeometry(QtCore.QRect(10, 100, 81, 21))
+        self.label_6.setStyleSheet("font: 9pt \"MS Shell Dlg 2\";")
+        self.label_6.setObjectName("label_6")
+        self.label_7 = QtWidgets.QLabel(parent=self.frame)
+        self.label_7.setGeometry(QtCore.QRect(10, 190, 81, 21))
+        self.label_7.setStyleSheet("font: 9pt \"MS Shell Dlg 2\";")
+        self.label_7.setObjectName("label_7")
+        self.pushButtonLogin = QtWidgets.QPushButton(parent=self.frame)
+        self.pushButtonLogin.setGeometry(QtCore.QRect(20, 390, 171, 41))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(14)
@@ -71,25 +104,26 @@ class Ui_MainWindow(object):
         self.pushButtonLogin.setFont(font)
         self.pushButtonLogin.setStyleSheet("\n"
 "       QPushButton {\n"
-"           background-color: #FFFFFF;\n"
-"           color: #FF0000;\n"
+"           background-color: #FE7E6D;\n"
+"\n"
+"            color: rgb(255, 255, 255);\n"
 "           border: 2px solid #FF9999;\n"
 "           border-radius: 15px;\n"
 "           font: bold 14pt;\n"
 "       }\n"
 "       QPushButton:hover {\n"
-"           background-color: #FFEEEE;\n"
+"           background-color: #FE7E6D;\n"
 "       }\n"
 "       QPushButton:pressed {\n"
-"           background-color: #FFCCCC;\n"
+"           background-color: #FE7E6D;\n"
 "       }\n"
 "      ")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\../../../Download/8679838_login_box_line_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../Download/8679838_login_box_line_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButtonLogin.setIcon(icon)
         self.pushButtonLogin.setObjectName("pushButtonLogin")
-        self.pushButtonExit = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButtonExit.setGeometry(QtCore.QRect(470, 410, 161, 41))
+        self.pushButtonExit = QtWidgets.QPushButton(parent=self.frame)
+        self.pushButtonExit.setGeometry(QtCore.QRect(220, 390, 161, 41))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(14)
@@ -99,56 +133,27 @@ class Ui_MainWindow(object):
         self.pushButtonExit.setFont(font)
         self.pushButtonExit.setStyleSheet("\n"
 "       QPushButton {\n"
-"           background-color: #FFFFFF;\n"
-"           color: #FF0000;\n"
+"           background-color: #FE7E6D;\n"
+"\n"
+"            color: rgb(255, 255, 255);\n"
 "           border: 2px solid #FF9999;\n"
 "           border-radius: 15px;\n"
 "           font: bold 14pt;\n"
 "       }\n"
 "       QPushButton:hover {\n"
-"           background-color: #FFEEEE;\n"
+"           background-color: #FE7E6D;\n"
 "       }\n"
 "       QPushButton:pressed {\n"
-"           background-color: #FFCCCC;\n"
+"           background-color: #FE7E6D;\n"
 "       }\n"
 "      ")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\../../../Download/3994382_access_close_exit_logout_sign out_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../Download/3994382_access_close_exit_logout_sign out_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButtonExit.setIcon(icon1)
         self.pushButtonExit.setObjectName("pushButtonExit")
-        self.checkBoxSavePassWord = QtWidgets.QCheckBox(parent=self.centralwidget)
-        self.checkBoxSavePassWord.setGeometry(QtCore.QRect(320, 360, 161, 31))
-        self.checkBoxSavePassWord.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 15px;\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"color: rgb(0,0,0)")
-        self.checkBoxSavePassWord.setObjectName("checkBoxSavePassWord")
-        self.radioButtonStaff = QtWidgets.QRadioButton(parent=self.centralwidget)
-        self.radioButtonStaff.setGeometry(QtCore.QRect(260, 310, 91, 31))
-        self.radioButtonStaff.setStyleSheet("font: 12pt \"MS Shell Dlg 2\";\n"
-"font: 13pt \".AppleSystemUIFont\";\n"
-"border-color: rgb(255, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-radius: 15px;\n"
-"color: rgb(0,0,0)")
-        self.radioButtonStaff.setObjectName("radioButtonStaff")
-        self.radioButtonManager = QtWidgets.QRadioButton(parent=self.centralwidget)
-        self.radioButtonManager.setGeometry(QtCore.QRect(440, 310, 101, 31))
-        self.radioButtonManager.setStyleSheet("font: 12pt \"MS Shell Dlg 2\";\n"
-"font: 13pt \".AppleSystemUIFont\";\n"
-"border-color: rgb(255, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-radius: 15px;\n"
-"color: rgb(0,0,0)\n"
-"")
-        self.radioButtonManager.setObjectName("radioButtonManager")
-        self.label_5 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(60, 310, 131, 31))
-        self.label_5.setStyleSheet("font: 75 14pt \"MS Shell Dlg 2\";")
-        self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1143, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -161,20 +166,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Login_MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600;\">Đăng nhập hệ thống</span></p></body></html>"))
+        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600;\">Login</span></p></body></html>"))
         self.lineEditUserName.setPlaceholderText(_translate("MainWindow", "Đăng nhập ngay thôii ...."))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Tên đăng nhập:</span></p></body></html>"))
-        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Mật khẩu:</span></p></body></html>"))
         self.lineEditPassword.setPlaceholderText(_translate("MainWindow", "Mật khẩu nè ...."))
-        self.pushButtonLogin.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Đăng nhập</span></p></body></html>"))
-        self.pushButtonLogin.setText(_translate("MainWindow", "Đăng nhập"))
-        self.pushButtonExit.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Đăng nhập</span></p></body></html>"))
-        self.pushButtonExit.setText(_translate("MainWindow", "Thoát"))
-        self.checkBoxSavePassWord.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.checkBoxSavePassWord.setText(_translate("MainWindow", "Save Password"))
-        self.radioButtonStaff.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Staff</span></p></body></html>"))
         self.radioButtonStaff.setText(_translate("MainWindow", "Staff"))
-        self.radioButtonManager.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Staff</span></p></body></html>"))
         self.radioButtonManager.setText(_translate("MainWindow", "Manager"))
-        self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Đối tượng:</span></p></body></html>"))
-
+        self.checkBoxSavePassWord.setText(_translate("MainWindow", "Save Password"))
+        self.label_6.setText(_translate("MainWindow", " Đăng nhập:"))
+        self.label_7.setText(_translate("MainWindow", " Mật khẩu:"))
+        self.pushButtonLogin.setText(_translate("MainWindow", "Đăng nhập"))
+        self.pushButtonExit.setText(_translate("MainWindow", "Thoát"))
