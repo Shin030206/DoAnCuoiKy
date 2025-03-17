@@ -1,7 +1,10 @@
 import sys
 
-from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLabel, QLineEdit, QTableWidget, QTableWidgetItem
+from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLineEdit, QTableWidget, QTableWidgetItem
 
+from DoAnCuoiKy.libs.DataConnector import DataConnector
+from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
+from DoAnCuoiKy.models.Product import Product
 from DoAnCuoiKy.ui.InventoryMainWindow import Ui_MainWindow
 
 
@@ -21,6 +24,7 @@ class InventoryMainWindowEx(Ui_MainWindow):
             # Liên kết các widget từ file UI
             self._link_ui_components()
             self.Signal()
+            self.load_products()  # Thêm dòng này
         except Exception as e:
             QMessageBox.critical(None, "Lỗi khởi tạo", f"Không thể khởi tạo UI: {str(e)}")
             sys.exit(1)  # Thoát chương trình nếu lỗi nghiêm trọng
@@ -122,10 +126,31 @@ class InventoryMainWindowEx(Ui_MainWindow):
 
             # Cập nhật tổng số lượng
             self.total_quantity += product_quantity
-          
+
 
             # Xóa form nhập liệu
             self.xuly_moi()
+            new_product = Product(
+                proid=product_id,
+                proname=product_name,
+                price=product_price,
+                quantity=product_quantity,
+                cateid=product_cate_id )
+
+            # Thêm vào JSON
+            connector = DataConnector()
+            products = connector.get_all_products()
+            products.append(new_product)
+
+            # Ghi dữ liệu
+            jff = JsonFileFactory()
+            jff.write_data(products, "../dataset/products.json")  # Đảm bảo đường dẫn đúng
+
+            # Thêm vào bảng và cập nhật tổng số lượng
+            row = self.tableWidgetProduct.rowCount()
+            self.tableWidgetProduct.insertRow(row)
+            # ... (giữ nguyên phần hiển thị lên bảng)
+
 
         except Exception as e:
             QMessageBox.critical(
@@ -138,17 +163,25 @@ class InventoryMainWindowEx(Ui_MainWindow):
         try:
             selected_row = self.tableWidgetProduct.currentRow()
             if selected_row >= 0:
-                 # Cập nhật tổng số lượng
+                # Lấy mã sản phẩm từ hàng được chọn
+                product_id = self.tableWidgetProduct.item(selected_row, 0).text()
+
+                # Xóa khỏi JSON
+                connector = DataConnector()
+                products = connector.get_all_products()
+                products = [p for p in products if p.proid != product_id]
+
+                jff = JsonFileFactory()
+                jff.write_data(products, "../dataset/products.json")
+
+                # Xóa khỏi bảng và cập nhật tổng số lượng
                 quantity = int(self.tableWidgetProduct.item(selected_row, 3).text())
                 self.total_quantity -= quantity
-
-
-                # Xóa hàng
                 self.tableWidgetProduct.removeRow(selected_row)
             else:
                 QMessageBox.warning(self.MainWindow, "Cảnh báo", "Vui lòng chọn sản phẩm cần xóa!")
         except Exception as e:
-            QMessageBox.critical(self.MainWindow, "Lỗi", f"Lỗi hệ thống: {str(e)}")
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể xóa: {str(e)}")
 
     def _setup_table_columns(self):
         """Cấu hình số cột và tiêu đề cho bảng"""
@@ -162,3 +195,26 @@ class InventoryMainWindowEx(Ui_MainWindow):
         self.tableWidgetProduct.setColumnWidth(2, 150)
         self.tableWidgetProduct.setColumnWidth(3, 100)
         self.tableWidgetProduct.setColumnWidth(4, 150)
+
+    def load_products(self):
+        try:
+            connector = DataConnector()
+            products = connector.get_all_products()
+            self.tableWidgetProduct.setRowCount(0)  # Xóa toàn bộ hàng cũ trước khi tải mới
+
+            for product in products:
+                row = self.tableWidgetProduct.rowCount()
+                self.tableWidgetProduct.insertRow(row)
+
+                # Kiểm tra dữ liệu trước khi thêm vào bảng
+                if product.proid and product.proname and product.price and product.quantity and product.cateid:
+                    self.tableWidgetProduct.setItem(row, 0, QTableWidgetItem(str(product.proid)))
+                    self.tableWidgetProduct.setItem(row, 1, QTableWidgetItem(product.proname))
+                    self.tableWidgetProduct.setItem(row, 2, QTableWidgetItem(f"{product.price:,.2f}"))
+                    self.tableWidgetProduct.setItem(row, 3, QTableWidgetItem(str(product.quantity)))
+                    self.tableWidgetProduct.setItem(row, 4, QTableWidgetItem(product.cateid))
+                else:
+                    print(f"Sản phẩm {product.proid} thiếu thông tin, bỏ qua!")
+
+        except Exception as e:
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không tải được sản phẩm: {str(e)}")
