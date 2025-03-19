@@ -18,9 +18,6 @@ class SalesMainWindowEx(Ui_MainWindow):
         self.spinBoxQuantity.setMinimum(1)  # Giá trị tối thiểu là 1
         self.spinBoxQuantity.setMaximum(100)  # Giá trị tối đa là 100 (tuỳ chỉnh)
         self.spinBoxQuantity.setValue(1)  # Giá trị mặc định
-
-        # Thêm QSpinBox vào layout (ví dụ: QHBoxLayout hoặc QVBoxLayout)
-        self.verticalLayout_2.addWidget(self.spinBoxQuantity)  # Thay "self.layout" bằng layout thực tế của bạn
     def setupUi(self, MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow=MainWindow
@@ -115,76 +112,88 @@ class SalesMainWindowEx(Ui_MainWindow):
             self.tableWidgetProduct.setItem(row, 2, col_price)
             self.tableWidgetProduct.setItem(row, 3, col_quantity)
             self.tableWidgetProduct.setItem(row, 4, col_cateid)
-
     def add_to_bill(self):
         try:
-            # 1. Kiểm tra người dùng đã chọn sản phẩm chưa
-            selected_items = self.tableWidgetProduct.selectedItems()
-            if not selected_items:
-                QMessageBox.warning(self.MainWindow, "Cảnh báo", "Vui lòng chọn sản phẩm từ danh sách!")
+            # Kiểm tra hàng được chọn trong bảng sản phẩm
+            current_row = self.tableWidgetProduct.currentRow()
+            if current_row < 0:
+                QMessageBox.warning(self.MainWindow, "Thông báo", "Vui lòng chọn sản phẩm từ bảng!")
                 return
 
-            # 2. Lấy thông tin sản phẩm từ item được chọn
-            selected_item = selected_items[0]
-
-            # Giả sử định dạng item: "P001 | Áo thun | 100,000 VND | 10"
-            item_data = selected_item.text().split(" | ")
-            if len(item_data) < 4:
-                QMessageBox.critical(self.MainWindow, "Lỗi", "Định dạng sản phẩm không hợp lệ!")
-                return
-
-            proid = item_data[0].strip()  # Lấy mã sản phẩm
-
-            # 3. Lấy số lượng từ SpinBox
+            # Lấy thông tin sản phẩm được chọn
+            self.selected_product = self.products[current_row]
+            cur_proid = self.selected_product.proid
+            cur_proname = self.selected_product.proname
+            cur_price = self.selected_product.price
+            cur_cateid = self.selected_product.cateid
+            current_stock = self.selected_product.quantity  # Số lượng tồn kho hiện tại
+            # 3. Lấy số lượng từ QSpinBox
             quantity = self.spinBoxQuantity.value()
             if quantity <= 0:
                 QMessageBox.warning(self.MainWindow, "Cảnh báo", "Số lượng phải lớn hơn 0!")
                 return
+            # KHỞI TẠO dictionary nếu chưa có
+            if not hasattr(self, 'item_quantities'):
+                self.item_quantities = {}
 
-            # 4. Lấy thông tin sản phẩm từ database
-            product = self.dc.get_product_by_proid(proid)
-            if not product:
-                QMessageBox.critical(self.MainWindow, "Lỗi", f"Sản phẩm {proid} không tồn tại trong hệ thống!")
+            # KIỂM TRA SỐ LƯỢNG TRONG KHO
+            if self.selected_product.quantity <= 0:
+                QtWidgets.QMessageBox.warning(self.MainWindow, "Thông báo", f"Sản phẩm {cur_proname} đã hết hàng!")
                 return
 
-            # 5. Kiểm tra số lượng tồn kho
-            if product.quantity < quantity:
-                QMessageBox.warning(
-                    self.MainWindow,
-                    "Cảnh báo",
-                    f"Số lượng tồn kho không đủ!\nHiện có: {product.quantity} sản phẩm"
+            # KIỂM TRA SẢN PHẨM ĐÃ CÓ TRONG BILL CHƯA
+            item_found = None
+            for i in range(self.listWidgetBill.count()):
+                item = self.listWidgetBill.item(i)
+                item_proid = item.text().split('\t')[0]
+                if item_proid == cur_proid:
+                    item_found = item
+                    break
+
+            # 7. Xử lý thêm/cập nhật số lượng
+            if item_found:
+                # Lấy số lượng hiện tại trong bill
+                current_quantity = self.item_quantities[cur_proid]
+                new_quantity = current_quantity + quantity
+                # Kiểm tra lại tồn kho sau khi cộng dồn
+                if current_stock < new_quantity:
+                    QMessageBox.warning(
+                        self.MainWindow,
+                        "Cảnh báo",
+                        f"Không thể thêm {quantity} sản phẩm!\nTồn kho còn: {current_stock - current_quantity}"
+                    )
+                    return
+                # Kiểm tra số lượng kho còn đủ không
+                if self.selected_product.quantity - 1 < 0:
+                    QtWidgets.QMessageBox.warning(self.MainWindow,"Thông báo", f"Sản phẩm {cur_proname} đã hết hàng!")
+                    return
+
+                # Cập nhật số lượng trong bill
+                self.item_quantities[cur_proid] = new_quantity
+                item_found.setText(
+                    f"{cur_proid}\t{cur_proname}\t{cur_price}\t{new_quantity}\t{new_quantity * cur_price}\t{cur_cateid}"
                 )
-                return
-
-            # 6. Cập nhật số lượng tồn kho (GIẢM)
-            new_quantity = product.quantity - quantity
-            self.dc.update_remove_quantity(new_quantity)
-
-            # 7. Thêm vào hóa đơn
-            if proid in self.item_quantities:
-                self.item_quantities[proid] += quantity
             else:
-                self.item_quantities[proid] = quantity
+                # Thêm mới vào bill
+                self.item_quantities[cur_proid] = quantity
+                new_item = QListWidgetItem(
+                    f"{cur_proid}\t{cur_proname}\t{cur_price}\t{quantity}\t{quantity * cur_price}\t{cateid}"
+                )
+                self.listWidgetBill.addItem(new_item)
 
-            # 8. Thêm vào ListWidget Bill
-            bill_item = (
-                f"{product.proid} | {product.name} | "
-                f"SL: {quantity} | "
-                f"{product.price:,.0f} VND x {quantity} = "
-                f"{(product.price * quantity):,.0f} VND"
-            )
-            self.listWidgetBill.addItem(bill_item)
+                # 8. Cập nhật số lượng tồn kho trong database
+                new_stock = current_stock - quantity
+                self.dc.update_product_quantity(cur_proid, new_stock)  # Giả sử hàm này cập nhật quantity
 
-            # 9. Cập nhật giao diện
-            self.show_products_gui()  # Load lại danh sách sản phẩm với số lượng mới
-            self.update_total_display()  # Cập nhật tổng tiền
+                # 9. Làm mới giao diện
+                self.show_products_gui()  # Cập nhật bảng sản phẩm
+                self.update_total_display()  # Tính lại tổng tiền
+
+                # 10. Reset SpinBox về 1
+                self.spinBoxQuantity.setValue(1)
 
         except Exception as e:
-            QMessageBox.critical(
-                self.MainWindow,
-                "Lỗi nghiêm trọng",
-                f"Lỗi khi thêm vào hóa đơn: {str(e)}"
-            )
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Lỗi khi thêm vào hóa đơn: {str(e)}")
     def remove_from_bill(self):
         # Lấy item được chọn từ list bill
         current_item = self.listWidgetBill.currentItem()
@@ -234,11 +243,22 @@ class SalesMainWindowEx(Ui_MainWindow):
     def calculate_total(self):
         try:
             total = 0
+            if not self.item_quantities:
+                QMessageBox.information(self.MainWindow, "Thông báo", "Hóa đơn trống!")
+                return
             for proid, quantity in self.item_quantities.items():
                 product = self.dc.get_product_by_proid(proid)
                 if product and quantity > 0:
                     total += product.price * quantity  # Tính tổng trước thuế
             total *= 1.08  # Áp dụng thuế 8% một lần duy nhất
+            # Thêm tổng tiền vào message
+            message += (
+                "--------------------------------\n"
+                f"Thuế VAT (8%): {total * 0.08:,.0f} VND\n"
+                f"TỔNG CỘNG: {total:,.0f} VND")
+
+            # Hiển thị hóa đơn
+            QMessageBox.information(self.MainWindow, "Hóa đơn", message)
             return total
         except Exception as e:
             print(f"Lỗi tính tổng tiền: {str(e)}")
