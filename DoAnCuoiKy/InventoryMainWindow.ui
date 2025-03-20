@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1153</width>
-    <height>809</height>
+    <height>1198</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,7 +57,7 @@
       <x>0</x>
       <y>90</y>
       <width>361</width>
-      <height>651</height>
+      <height>731</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -116,8 +116,8 @@ alternate-background-color: rgb(255, 255, 255);
      <rect>
       <x>360</x>
       <y>90</y>
-      <width>381</width>
-      <height>661</height>
+      <width>391</width>
+      <height>731</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -136,40 +136,30 @@ alternate-background-color: rgb(255, 255, 255);
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>20</y>
-       <width>321</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(0,0,0);</string>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Bảng tồn kho&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QTableWidget" name="tableWidgetProduct">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>341</width>
-       <height>571</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:rgb(0,0,0)</string>
-     </property>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0,0,0);</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Bảng tồn kho&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="tableWidgetProduct">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(0,0,0)</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
@@ -177,7 +167,7 @@ alternate-background-color: rgb(255, 255, 255);
       <x>740</x>
       <y>90</y>
       <width>411</width>
-      <height>661</height>
+      <height>731</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -586,6 +576,41 @@ color:rgb(0,0,0)
       <string>Close</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButtonSearchBill">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>650</y>
+       <width>331</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+             QPushButton {
+                 background-color: #A0C878;
+                 
+	color: rgb(0, 0, 0);
+                 border-radius: 5px;
+                 padding: 8px;
+             }
+             QPushButton:hover {
+                 background-color: #A0C878;
+             }
+             QPushButton:pressed {
+                 background-color: #A0C878;
+             }
+            </string>
+     </property>
+     <property name="text">
+      <string>Search Bill</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -594,7 +619,7 @@ color:rgb(0,0,0)
      <x>0</x>
      <y>0</y>
      <width>1153</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
