@@ -1,0 +1,20 @@
+[
+    {
+        "EmployeeId": "ST1",
+        "EmployeeName": "Hùng",
+        "UserName": "hung",
+        "PassWord": "456"
+    },
+    {
+        "EmployeeId": "ST2",
+        "EmployeeName": "Đăng",
+        "UserName": "dang",
+        "PassWord": "789"
+    },
+    {
+        "EmployeeId": "ST3",
+        "EmployeeName": "Phong",
+        "UserName": "phong",
+        "PassWord": "000"
+    }
+]
