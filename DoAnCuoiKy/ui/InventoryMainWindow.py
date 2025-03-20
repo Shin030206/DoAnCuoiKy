@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1153, 809)
+        MainWindow.resize(1153, 1198)
         MainWindow.setStyleSheet("\n"
 "          QFrame {\n"
 "              background-color: rgba(255, 255, 255, 0.8);\n"
@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
 "")
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 90, 361, 651))
+        self.frame.setGeometry(QtCore.QRect(0, 90, 361, 731))
         self.frame.setStyleSheet("QFrame {\n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -75,7 +75,7 @@ class Ui_MainWindow(object):
         self.listWidgetCategory.setObjectName("listWidgetCategory")
         self.verticalLayout.addWidget(self.listWidgetCategory)
         self.frame_2 = QtWidgets.QFrame(parent=self.centralwidget)
-        self.frame_2.setGeometry(QtCore.QRect(360, 90, 381, 661))
+        self.frame_2.setGeometry(QtCore.QRect(360, 90, 391, 731))
         self.frame_2.setStyleSheet("QFrame {\n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -87,12 +87,13 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_2.setObjectName("frame_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.label_3 = QtWidgets.QLabel(parent=self.frame_2)
-        self.label_3.setGeometry(QtCore.QRect(30, 20, 321, 51))
         self.label_3.setStyleSheet("color: rgb(0,0,0);")
         self.label_3.setObjectName("label_3")
+        self.verticalLayout_2.addWidget(self.label_3)
         self.tableWidgetProduct = QtWidgets.QTableWidget(parent=self.frame_2)
-        self.tableWidgetProduct.setGeometry(QtCore.QRect(20, 70, 341, 571))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.tableWidgetProduct.setFont(font)
@@ -100,8 +101,9 @@ class Ui_MainWindow(object):
         self.tableWidgetProduct.setObjectName("tableWidgetProduct")
         self.tableWidgetProduct.setColumnCount(0)
         self.tableWidgetProduct.setRowCount(0)
+        self.verticalLayout_2.addWidget(self.tableWidgetProduct)
         self.frame_3 = QtWidgets.QFrame(parent=self.centralwidget)
-        self.frame_3.setGeometry(QtCore.QRect(740, 90, 411, 661))
+        self.frame_3.setGeometry(QtCore.QRect(740, 90, 411, 731))
         self.frame_3.setStyleSheet("QFrame {\n"
 "   \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -303,6 +305,27 @@ class Ui_MainWindow(object):
 "             }\n"
 "            ")
         self.pushButtonCloseInventory.setObjectName("pushButtonCloseInventory")
+        self.pushButtonSearchBill = QtWidgets.QPushButton(parent=self.frame_3)
+        self.pushButtonSearchBill.setGeometry(QtCore.QRect(40, 650, 331, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pushButtonSearchBill.setFont(font)
+        self.pushButtonSearchBill.setStyleSheet("\n"
+"             QPushButton {\n"
+"                 background-color: #A0C878;\n"
+"                 \n"
+"    color: rgb(0, 0, 0);\n"
+"                 border-radius: 5px;\n"
+"                 padding: 8px;\n"
+"             }\n"
+"             QPushButton:hover {\n"
+"                 background-color: #A0C878;\n"
+"             }\n"
+"             QPushButton:pressed {\n"
+"                 background-color: #A0C878;\n"
+"             }\n"
+"            ")
+        self.pushButtonSearchBill.setObjectName("pushButtonSearchBill")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1153, 26))
@@ -331,3 +354,4 @@ class Ui_MainWindow(object):
         self.pushButtonAddProduct.setText(_translate("MainWindow", "Add"))
         self.pushButtonRemoveProduct.setText(_translate("MainWindow", "Remove"))
         self.pushButtonCloseInventory.setText(_translate("MainWindow", "Close"))
+        self.pushButtonSearchBill.setText(_translate("MainWindow", "Search Bill"))
