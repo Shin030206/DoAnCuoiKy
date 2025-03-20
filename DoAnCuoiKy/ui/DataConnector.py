@@ -1,10 +1,26 @@
+import json
+import os
+
 from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
 from DoAnCuoiKy.models.Category import Category
 from DoAnCuoiKy.models.Manager import Manager
 from DoAnCuoiKy.models.Product import Product
 from DoAnCuoiKy.models.Staff import Staff
 
+class SalesRecord:
+    def __init__(self, datetime, items, total):
+        self.datetime = datetime
+        self.items = items  # items là list các dict
+        self.total = total
 
+    # Thêm phương thức để hỗ trợ khởi tạo từ dict
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            datetime=data.get("datetime"),
+            items=data.get("items"),
+            total=data.get("total")
+        )
 class DataConnector:
     def get_all_staff(self):
         jff = JsonFileFactory()
@@ -44,12 +60,21 @@ class DataConnector:
         return -1
 
     def get_product_by_proid(self, proid):
-        # Loại bỏ khoảng trắng thừa và chuyển về chữ thường (nếu cần)
-        cleaned_proid = proid.strip().lower()
-        for product in self.products:
-            if product.proid.strip().lower() == cleaned_proid:
+        self.products=self.get_all_products()# Tìm sản phẩm trong danh sách dựa trên proid
+        for product in self.products:  # Giả định self.products là danh sách sản phẩm
+            if product.proid == proid:
                 return product
         return None
+
+    # Trong DataConnector.py
+    def update_product_quantity(self, proid, new_quantity):
+        self.products=self.get_all_products()
+        for product in self.products:
+            if product.proid == proid:
+                product.quantity = new_quantity
+                self.save_update_product(product)
+                return
+        raise ValueError(f"Sản phẩm {proid} không tồn tại!")
     def save_update_product(self,current_product):
         index=self.find_index_product(current_product.proid)
         if index!=-1:
@@ -82,3 +107,41 @@ class DataConnector:
                 if m.UserName == username and m.PassWord == password:
                     return "mg"
             return None
+
+    def save_sales_history(self, bill_data):
+        jff = JsonFileFactory()
+        filename = "../dataset/sales_history.json"
+
+        try:
+            # Đọc dữ liệu thô từ file thủ công
+            if os.path.isfile(filename):
+                with open(filename, 'r', encoding='utf-8') as file:
+                    existing_data = json.load(file)  # Đọc trực tiếp bằng json.load
+            else:
+                existing_data = []
+            if existing_data is None or not isinstance(existing_data, list):
+                existing_data = []  # Gán danh sách rỗng nếu không có dữ liệu
+            sales_records = []
+            for item in existing_data:
+                if isinstance(item, dict):
+                    # Chỉ lấy các khóa hợp lệ cho SalesRecord
+                    sales_record = SalesRecord(
+                        datetime=item.get("datetime"),
+                        items=item.get("items"),
+                        total=item.get("total")
+                    )
+                    sales_records.append(sales_record)
+
+            # Tạo SalesRecord từ bill_data
+            new_sales_record = SalesRecord(
+                datetime=bill_data.get("datetime"),
+                items=bill_data.get("items"),
+                total=bill_data.get("total")
+            )
+            sales_records.append(new_sales_record)
+
+            # Ghi lại dữ liệu
+            jff.write_data(sales_records, filename)
+        except Exception as e:
+            print(f"Lỗi khi lưu lịch sử: {str(e)}")
+            raise  # Để xem chi tiết lỗi nếu cần
