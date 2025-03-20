@@ -1,6 +1,7 @@
 import sys
 
-from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLineEdit, QTableWidget, QTableWidgetItem, QListWidgetItem
+from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLineEdit, QTableWidget, QTableWidgetItem, QListWidgetItem, \
+    QListWidget
 
 from DoAnCuoiKy.libs.DataConnector import DataConnector
 from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
@@ -16,20 +17,14 @@ class InventoryMainWindowEx(Ui_MainWindow):
         self.products = []
         self.total_quantity = 0
 
-
     def setupUi(self, MainWindow):
-        try:
-            super().setupUi(MainWindow)
-            self.MainWindow = MainWindow
-            self._setup_table_columns()  # Cấu hình bảng
-            # Liên kết các widget từ file UI
-            self._link_ui_components()
-            self.Signal()
-            self.load_products()  # Thêm dòng này
-
-        except Exception as e:
-            QMessageBox.critical(None, "Lỗi khởi tạo", f"Không thể khởi tạo UI: {str(e)}")
-            sys.exit(1)  # Thoát chương trình nếu lỗi nghiêm trọng
+        super().setupUi(MainWindow)
+        self.MainWindow = MainWindow
+        self._setup_table_columns()
+        self._link_ui_components()
+        self.Signal()
+        self.load_products()
+        self.load_categories()  # Tải danh sách danh mục
 
     def _link_ui_components(self):
         try:
@@ -41,16 +36,18 @@ class InventoryMainWindowEx(Ui_MainWindow):
             self.lineEditCateID = self.MainWindow.findChild(QLineEdit, "lineEditCateID")
             self.tableWidgetProduct = self.MainWindow.findChild(QTableWidget, "tableWidgetProduct")
 
-            # Liên kết QTableWidget danh mục
-            self.tableWidgetCategory = self.MainWindow.findChild(QTableWidget, "tableWidgetCategory")
+            # Liên kết QListWidget danh mục
+            self.listWidgetCategory = self.MainWindow.findChild(QListWidget, "listWidgetCategory")
 
             # Kết nối sự kiện khi người dùng chọn một hàng trong bảng sản phẩm
             self.tableWidgetProduct.cellClicked.connect(self.display_product_info)
 
+            # Kết nối sự kiện khi người dùng chọn một danh mục
+            self.listWidgetCategory.itemSelectionChanged.connect(self.filter_products)
+
         except Exception as e:
             QMessageBox.critical(self.MainWindow, "Lỗi hệ thống", f"Lỗi liên kết UI: {str(e)}")
             raise
-
     def display_product_info(self, row, column):
         """Hiển thị thông tin sản phẩm lên các QLineEdit khi người dùng chọn một hàng trong bảng"""
         try:
@@ -72,20 +69,18 @@ class InventoryMainWindowEx(Ui_MainWindow):
             QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể hiển thị thông tin sản phẩm: {str(e)}")
 
     def load_categories(self):
-        """Tải danh sách danh mục và hiển thị lên QTableWidget"""
+        """Tải danh sách danh mục và hiển thị lên QListWidget"""
         try:
             connector = DataConnector()
-            categories = connector.get_all_categories()
+            self.categories = connector.get_all_categories()
 
-            # Xóa toàn bộ hàng cũ trong QTableWidget
-            self.tableWidgetCategory.setRowCount(0)
+            # Xóa danh sách cũ trong QListWidget
+            self.listWidgetCategory.clear()
 
-            # Thêm danh sách danh mục vào QTableWidget
-            for category in categories:
-                row = self.tableWidgetCategory.rowCount()
-                self.tableWidgetCategory.insertRow(row)
-                self.tableWidgetCategory.setItem(row, 0, QTableWidgetItem(category.cateid))
-                self.tableWidgetCategory.setItem(row, 1, QTableWidgetItem(category.catename))
+            # Thêm danh sách danh mục vào QListWidget
+            for category in self.categories:
+                cate_item = QListWidgetItem(f"{category.cateid} - {category.catename}")
+                self.listWidgetCategory.addItem(cate_item)
 
         except Exception as e:
             QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể tải danh sách danh mục: {str(e)}")
@@ -220,35 +215,49 @@ class InventoryMainWindowEx(Ui_MainWindow):
             QMessageBox.critical(self.MainWindow, "Lỗi", f"Không tải được sản phẩm: {str(e)}")
 
     def filter_products(self):
-        # get current selected index
-        row = self.listWidgetCategory.currentRow()
-        if row < 0:  # not found selected index
-            return
-        self.selected_cate = None
-        # filter products by cate id
-        self.products = self.dc.get_product_bycategories(self.selected_cate.cateid)
-        # re-display products into QTableWidget
-        self.tableWidgetProduct.setRowCount(0)
-        for product in self.products:
-            # get number of row(meaning last index)
-            row = self.tableWidgetProduct.rowCount()
-            # insert new row(last row, at the end of row in the table)
-            self.tableWidgetProduct.insertRow(row)
-            col_proid = QTableWidgetItem(product.proid)
-            col_proname = QTableWidgetItem(product.proname)
-            col_price = QTableWidgetItem(str(product.price))
-            col_quantity = QTableWidgetItem(str(product.quantity))
-            col_cateid = QTableWidgetItem(str(product.cateid))
-            # set column for row:
-            self.tableWidgetProduct.setItem(row, 0, col_proid)
-            self.tableWidgetProduct.setItem(row, 1, col_proname)
-            self.tableWidgetProduct.setItem(row, 2, col_price)
-            self.tableWidgetProduct.setItem(row, 3, col_quantity)
-            self.tableWidgetProduct.setItem(row, 4, col_cateid)
-    def show_categories(self):
-        #clear all previous data from QListWidget
-        self.listWidgetCategory.clear()
-        #load cate objects into QListWidget:
-        for cate in self.categories:
-            cate_item=QListWidgetItem(str(cate))
-            self.listWidgetCategory.addItem(cate_item)
+        """Lọc sản phẩm theo danh mục được chọn"""
+        try:
+            # Lấy danh mục được chọn
+            selected_row = self.listWidgetCategory.currentRow()
+            if selected_row < 0:  # Không có danh mục nào được chọn
+                return
+
+            selected_category = self.categories[selected_row]
+
+            # Lọc sản phẩm theo danh mục
+            connector = DataConnector()
+            self.products = connector.get_product_bycategories(selected_category.cateid)
+
+            # Hiển thị sản phẩm lên QTableWidget
+            self.show_products_gui()
+
+        except Exception as e:
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể lọc sản phẩm: {str(e)}")
+
+    def show_products_gui(self):
+        """Hiển thị danh sách sản phẩm lên QTableWidget"""
+        try:
+            # Xóa toàn bộ hàng cũ trong QTableWidget
+            self.tableWidgetProduct.setRowCount(0)
+
+            # Thêm danh sách sản phẩm vào QTableWidget
+            for product in self.products:
+                row = self.tableWidgetProduct.rowCount()
+                self.tableWidgetProduct.insertRow(row)
+
+                # Tạo các cột cho hàng
+                col_proid = QTableWidgetItem(product.proid)
+                col_proname = QTableWidgetItem(product.proname)
+                col_price = QTableWidgetItem(f"{product.price:,.2f}")
+                col_quantity = QTableWidgetItem(str(product.quantity))
+                col_cateid = QTableWidgetItem(product.cateid)
+
+                # Đặt giá trị cho các cột
+                self.tableWidgetProduct.setItem(row, 0, col_proid)
+                self.tableWidgetProduct.setItem(row, 1, col_proname)
+                self.tableWidgetProduct.setItem(row, 2, col_price)
+                self.tableWidgetProduct.setItem(row, 3, col_quantity)
+                self.tableWidgetProduct.setItem(row, 4, col_cateid)
+
+        except Exception as e:
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể hiển thị sản phẩm: {str(e)}")
