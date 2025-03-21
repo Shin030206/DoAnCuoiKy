@@ -1,702 +1,177 @@
 [
     {
         "proid": "P1",
-        "proname": "Product 1",
-        "price": 548,
+        "proname": "Mỳ Ý",
+        "price": 49000,
         "quantity": 30,
-        "cateid": "C19"
+        "cateid": "C1"
     },
     {
         "proid": "P2",
-        "proname": "Product 2",
-        "price": 409,
-        "quantity": 76,
-        "cateid": "C19"
+        "proname": "Gà Rán Không Cay",
+        "price": 39000,
+        "quantity": 40,
+        "cateid": "C1"
     },
     {
         "proid": "P3",
-        "proname": "Product 3",
-        "price": 517,
-        "quantity": 30,
-        "cateid": "C5"
+        "proname": "Gà Rán Cay",
+        "price": 39000,
+        "quantity": 40,
+        "cateid": "C1"
     },
     {
         "proid": "P4",
-        "proname": "Product 4",
-        "price": 357,
-        "quantity": 89,
-        "cateid": "C9"
+        "proname": "Gà Viên",
+        "price": 29000,
+        "quantity": 50,
+        "cateid": "C1"
     },
     {
         "proid": "P5",
-        "proname": "Product 5",
-        "price": 302,
-        "quantity": 72,
-        "cateid": "C19"
+        "proname": "Khoai Tây Chiên",
+        "price": 25000,
+        "quantity": 60,
+        "cateid": "C1"
     },
     {
         "proid": "P6",
-        "proname": "Product 6",
-        "price": 647,
-        "quantity": 50,
-        "cateid": "C10"
+        "proname": "Bắp Tách Hạt",
+        "price": 15000,
+        "quantity": 45,
+        "cateid": "C1"
     },
     {
         "proid": "P7",
-        "proname": "Product 7",
-        "price": 858,
-        "quantity": 17,
-        "cateid": "C20"
+        "proname": "Cơm Gà",
+        "price": 49000,
+        "quantity": 50,
+        "cateid": "C1"
     },
     {
         "proid": "P8",
-        "proname": "Product 8",
-        "price": 853,
-        "quantity": 65,
-        "cateid": "C19"
+        "proname": "Bánh Gà",
+        "price": 35000,
+        "quantity": 40,
+        "cateid": "C1"
     },
     {
         "proid": "P9",
-        "proname": "Product 9",
-        "price": 610,
-        "quantity": 58,
-        "cateid": "C6"
+        "proname": "Burger Tôm",
+        "price": 49000,
+        "quantity": 25,
+        "cateid": "C2"
     },
     {
         "proid": "P10",
-        "proname": "Product 10",
-        "price": 416,
-        "quantity": 54,
-        "cateid": "C15"
+        "proname": "Burger Bò",
+        "price": 59000,
+        "quantity": 35,
+        "cateid": "C2"
     },
     {
         "proid": "P11",
-        "proname": "Product 11",
-        "price": 103,
-        "quantity": 56,
-        "cateid": "C11"
+        "proname": "Burger Cá",
+        "price": 49000,
+        "quantity": 25,
+        "cateid": "C2"
     },
     {
         "proid": "P12",
-        "proname": "Product 12",
-        "price": 935,
-        "quantity": 28,
-        "cateid": "C18"
+        "proname": "Burger Gà",
+        "price": 55000,
+        "quantity": 30,
+        "cateid": "C2"
     },
     {
         "proid": "P13",
-        "proname": "Product 13",
-        "price": 23,
-        "quantity": 82,
-        "cateid": "C4"
+        "proname": "Burger Bò Phô Mai",
+        "price": 60000,
+        "quantity": 20,
+        "cateid": "C2"
     },
     {
         "proid": "P14",
-        "proname": "Product 14",
-        "price": 469,
-        "quantity": 28,
-        "cateid": "C8"
+        "proname": "Burger Gà Cay",
+        "price": 55000,
+        "quantity": 15,
+        "cateid": "C2"
     },
     {
         "proid": "P15",
-        "proname": "Product 15",
-        "price": 802,
-        "quantity": 98,
-        "cateid": "C15"
+        "proname": "Mirinda",
+        "price": 19000,
+        "quantity": 50,
+        "cateid": "C3"
     },
     {
         "proid": "P16",
-        "proname": "Product 16",
-        "price": 123,
-        "quantity": 26,
-        "cateid": "C2"
+        "proname": "Sprite",
+        "price": 19000,
+        "quantity": 50,
+        "cateid": "C3"
     },
     {
         "proid": "P17",
-        "proname": "Product 17",
-        "price": 378,
-        "quantity": 96,
-        "cateid": "C15"
+        "proname": "Coke",
+        "price": 19000,
+        "quantity": 50,
+        "cateid": "C3"
     },
     {
         "proid": "P18",
-        "proname": "Product 18",
-        "price": 537,
-        "quantity": 75,
-        "cateid": "C11"
+        "proname": "Coke Zero",
+        "price": 50000,
+        "quantity": 14,
+        "cateid": "C3"
     },
     {
         "proid": "P19",
-        "proname": "Product 19",
-        "price": 956,
-        "quantity": 14,
-        "cateid": "C20"
+        "proname": "Pepsi",
+        "price": 19000,
+        "quantity": 45,
+        "cateid": "C3"
     },
     {
         "proid": "P20",
-        "proname": "Product 20",
-        "price": 136,
-        "quantity": 64,
-        "cateid": "C12"
+        "proname": "Trà chanh",
+        "price": 25000,
+        "quantity": 40,
+        "cateid": "C3"
     },
     {
         "proid": "P21",
-        "proname": "Product 21",
-        "price": 274,
-        "quantity": 58,
-        "cateid": "C5"
+        "proname": "Trà đào",
+        "price": 30000,
+        "quantity": 35,
+        "cateid": "C3"
     },
     {
         "proid": "P22",
-        "proname": "Product 22",
-        "price": 406,
-        "quantity": 78,
-        "cateid": "C5"
+        "proname": "Sữa tươi",
+        "price": 15000,
+        "quantity": 30,
+        "cateid": "C3"
     },
     {
         "proid": "P23",
-        "proname": "Product 23",
-        "price": 411,
-        "quantity": 43,
-        "cateid": "C1"
+        "proname": "Coffee",
+        "price": 35000,
+        "quantity": 25,
+        "cateid": "C3"
     },
     {
         "proid": "P24",
-        "proname": "Product 24",
-        "price": 27,
-        "quantity": 73,
-        "cateid": "C9"
+        "proname": "Nước suối",
+        "price": 10000,
+        "quantity": 100,
+        "cateid": "C3"
     },
     {
         "proid": "P25",
-        "proname": "Product 25",
-        "price": 253,
-        "quantity": 3,
-        "cateid": "C4"
-    },
-    {
-        "proid": "P26",
-        "proname": "Product 26",
-        "price": 206,
-        "quantity": 93,
+        "proname": "Matcha Latte",
+        "price": 45000,
+        "quantity": 30,
         "cateid": "C3"
-    },
-    {
-        "proid": "P27",
-        "proname": "Product 27",
-        "price": 727,
-        "quantity": 51,
-        "cateid": "C5"
-    },
-    {
-        "proid": "P28",
-        "proname": "Product 28",
-        "price": 570,
-        "quantity": 8,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P29",
-        "proname": "Product 29",
-        "price": 341,
-        "quantity": 94,
-        "cateid": "C6"
-    },
-    {
-        "proid": "P30",
-        "proname": "Product 30",
-        "price": 777,
-        "quantity": 68,
-        "cateid": "C20"
-    },
-    {
-        "proid": "P31",
-        "proname": "Product 31",
-        "price": 745,
-        "quantity": 98,
-        "cateid": "C14"
-    },
-    {
-        "proid": "P32",
-        "proname": "Product 32",
-        "price": 252,
-        "quantity": 26,
-        "cateid": "C10"
-    },
-    {
-        "proid": "P33",
-        "proname": "Product 33",
-        "price": 267,
-        "quantity": 60,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P34",
-        "proname": "Product 34",
-        "price": 382,
-        "quantity": 24,
-        "cateid": "C1"
-    },
-    {
-        "proid": "P35",
-        "proname": "Product 35",
-        "price": 896,
-        "quantity": 69,
-        "cateid": "C5"
-    },
-    {
-        "proid": "P36",
-        "proname": "Product 36",
-        "price": 310,
-        "quantity": 89,
-        "cateid": "C9"
-    },
-    {
-        "proid": "P37",
-        "proname": "Product 37",
-        "price": 767,
-        "quantity": 69,
-        "cateid": "C20"
-    },
-    {
-        "proid": "P38",
-        "proname": "Product 38",
-        "price": 96,
-        "quantity": 96,
-        "cateid": "C13"
-    },
-    {
-        "proid": "P39",
-        "proname": "Product 39",
-        "price": 266,
-        "quantity": 1,
-        "cateid": "C19"
-    },
-    {
-        "proid": "P40",
-        "proname": "Product 40",
-        "price": 717,
-        "quantity": 98,
-        "cateid": "C18"
-    },
-    {
-        "proid": "P41",
-        "proname": "Product 41",
-        "price": 291,
-        "quantity": 12,
-        "cateid": "C2"
-    },
-    {
-        "proid": "P42",
-        "proname": "Product 42",
-        "price": 774,
-        "quantity": 61,
-        "cateid": "C15"
-    },
-    {
-        "proid": "P43",
-        "proname": "Product 43",
-        "price": 963,
-        "quantity": 77,
-        "cateid": "C14"
-    },
-    {
-        "proid": "P44",
-        "proname": "Product 44",
-        "price": 489,
-        "quantity": 55,
-        "cateid": "C1"
-    },
-    {
-        "proid": "P45",
-        "proname": "Product 45",
-        "price": 567,
-        "quantity": 28,
-        "cateid": "C20"
-    },
-    {
-        "proid": "P46",
-        "proname": "Product 46",
-        "price": 892,
-        "quantity": 68,
-        "cateid": "C19"
-    },
-    {
-        "proid": "P47",
-        "proname": "Product 47",
-        "price": 716,
-        "quantity": 5,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P48",
-        "proname": "Product 48",
-        "price": 196,
-        "quantity": 31,
-        "cateid": "C17"
-    },
-    {
-        "proid": "P49",
-        "proname": "Product 49",
-        "price": 495,
-        "quantity": 78,
-        "cateid": "C17"
-    },
-    {
-        "proid": "P50",
-        "proname": "Product 50",
-        "price": 294,
-        "quantity": 16,
-        "cateid": "C11"
-    },
-    {
-        "proid": "P51",
-        "proname": "Product 51",
-        "price": 841,
-        "quantity": 36,
-        "cateid": "C11"
-    },
-    {
-        "proid": "P52",
-        "proname": "Product 52",
-        "price": 646,
-        "quantity": 80,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P53",
-        "proname": "Product 53",
-        "price": 190,
-        "quantity": 84,
-        "cateid": "C3"
-    },
-    {
-        "proid": "P54",
-        "proname": "Product 54",
-        "price": 370,
-        "quantity": 92,
-        "cateid": "C11"
-    },
-    {
-        "proid": "P55",
-        "proname": "Product 55",
-        "price": 508,
-        "quantity": 17,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P56",
-        "proname": "Product 56",
-        "price": 409,
-        "quantity": 3,
-        "cateid": "C13"
-    },
-    {
-        "proid": "P57",
-        "proname": "Product 57",
-        "price": 605,
-        "quantity": 60,
-        "cateid": "C17"
-    },
-    {
-        "proid": "P58",
-        "proname": "Product 58",
-        "price": 771,
-        "quantity": 37,
-        "cateid": "C2"
-    },
-    {
-        "proid": "P59",
-        "proname": "Product 59",
-        "price": 615,
-        "quantity": 45,
-        "cateid": "C9"
-    },
-    {
-        "proid": "P60",
-        "proname": "Product 60",
-        "price": 430,
-        "quantity": 86,
-        "cateid": "C17"
-    },
-    {
-        "proid": "P61",
-        "proname": "Product 61",
-        "price": 85,
-        "quantity": 20,
-        "cateid": "C6"
-    },
-    {
-        "proid": "P62",
-        "proname": "Product 62",
-        "price": 892,
-        "quantity": 66,
-        "cateid": "C5"
-    },
-    {
-        "proid": "P63",
-        "proname": "Product 63",
-        "price": 962,
-        "quantity": 98,
-        "cateid": "C9"
-    },
-    {
-        "proid": "P64",
-        "proname": "Product 64",
-        "price": 473,
-        "quantity": 86,
-        "cateid": "C1"
-    },
-    {
-        "proid": "P65",
-        "proname": "Product 65",
-        "price": 444,
-        "quantity": 78,
-        "cateid": "C2"
-    },
-    {
-        "proid": "P66",
-        "proname": "Product 66",
-        "price": 791,
-        "quantity": 88,
-        "cateid": "C20"
-    },
-    {
-        "proid": "P67",
-        "proname": "Product 67",
-        "price": 767,
-        "quantity": 53,
-        "cateid": "C5"
-    },
-    {
-        "proid": "P68",
-        "proname": "Product 68",
-        "price": 422,
-        "quantity": 43,
-        "cateid": "C6"
-    },
-    {
-        "proid": "P69",
-        "proname": "Product 69",
-        "price": 160,
-        "quantity": 62,
-        "cateid": "C19"
-    },
-    {
-        "proid": "P70",
-        "proname": "Product 70",
-        "price": 299,
-        "quantity": 14,
-        "cateid": "C14"
-    },
-    {
-        "proid": "P71",
-        "proname": "Product 71",
-        "price": 697,
-        "quantity": 49,
-        "cateid": "C1"
-    },
-    {
-        "proid": "P72",
-        "proname": "Product 72",
-        "price": 289,
-        "quantity": 1,
-        "cateid": "C9"
-    },
-    {
-        "proid": "P73",
-        "proname": "Product 73",
-        "price": 310,
-        "quantity": 71,
-        "cateid": "C17"
-    },
-    {
-        "proid": "P74",
-        "proname": "Product 74",
-        "price": 196,
-        "quantity": 94,
-        "cateid": "C8"
-    },
-    {
-        "proid": "P75",
-        "proname": "Product 75",
-        "price": 847,
-        "quantity": 67,
-        "cateid": "C9"
-    },
-    {
-        "proid": "P76",
-        "proname": "Product 76",
-        "price": 653,
-        "quantity": 63,
-        "cateid": "C13"
-    },
-    {
-        "proid": "P77",
-        "proname": "Product 77",
-        "price": 153,
-        "quantity": 27,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P78",
-        "proname": "Product 78",
-        "price": 752,
-        "quantity": 65,
-        "cateid": "C7"
-    },
-    {
-        "proid": "P79",
-        "proname": "Product 79",
-        "price": 924,
-        "quantity": 85,
-        "cateid": "C3"
-    },
-    {
-        "proid": "P80",
-        "proname": "Product 80",
-        "price": 762,
-        "quantity": 19,
-        "cateid": "C6"
-    },
-    {
-        "proid": "P81",
-        "proname": "Product 81",
-        "price": 850,
-        "quantity": 74,
-        "cateid": "C2"
-    },
-    {
-        "proid": "P82",
-        "proname": "Product 82",
-        "price": 936,
-        "quantity": 27,
-        "cateid": "C20"
-    },
-    {
-        "proid": "P83",
-        "proname": "Product 83",
-        "price": 991,
-        "quantity": 29,
-        "cateid": "C6"
-    },
-    {
-        "proid": "P84",
-        "proname": "Product 84",
-        "price": 800,
-        "quantity": 89,
-        "cateid": "C20"
-    },
-    {
-        "proid": "P85",
-        "proname": "Product 85",
-        "price": 380,
-        "quantity": 53,
-        "cateid": "C3"
-    },
-    {
-        "proid": "P86",
-        "proname": "Product 86",
-        "price": 714,
-        "quantity": 53,
-        "cateid": "C8"
-    },
-    {
-        "proid": "P87",
-        "proname": "Product 87",
-        "price": 969,
-        "quantity": 38,
-        "cateid": "C12"
-    },
-    {
-        "proid": "P88",
-        "proname": "Product 88",
-        "price": 647,
-        "quantity": 37,
-        "cateid": "C9"
-    },
-    {
-        "proid": "P89",
-        "proname": "Product 89",
-        "price": 152,
-        "quantity": 77,
-        "cateid": "C7"
-    },
-    {
-        "proid": "P90",
-        "proname": "Product 90",
-        "price": 484,
-        "quantity": 98,
-        "cateid": "C10"
-    },
-    {
-        "proid": "P91",
-        "proname": "Product 91",
-        "price": 883,
-        "quantity": 82,
-        "cateid": "C16"
-    },
-    {
-        "proid": "P92",
-        "proname": "Product 92",
-        "price": 985,
-        "quantity": 35,
-        "cateid": "C13"
-    },
-    {
-        "proid": "P93",
-        "proname": "Product 93",
-        "price": 553,
-        "quantity": 54,
-        "cateid": "C3"
-    },
-    {
-        "proid": "P94",
-        "proname": "Product 94",
-        "price": 257,
-        "quantity": 66,
-        "cateid": "C2"
-    },
-    {
-        "proid": "P95",
-        "proname": "Product 95",
-        "price": 954,
-        "quantity": 8,
-        "cateid": "C4"
-    },
-    {
-        "proid": "P96",
-        "proname": "Product 96",
-        "price": 857,
-        "quantity": 79,
-        "cateid": "C2"
-    },
-    {
-        "proid": "P97",
-        "proname": "Product 97",
-        "price": 553,
-        "quantity": 86,
-        "cateid": "C14"
-    },
-    {
-        "proid": "P98",
-        "proname": "Product 98",
-        "price": 366,
-        "quantity": 80,
-        "cateid": "C3"
-    },
-    {
-        "proid": "P99",
-        "proname": "Product 99",
-        "price": 138,
-        "quantity": 31,
-        "cateid": "C8"
-    },
-    {
-        "proid": "P100",
-        "proname": "Product 100",
-        "price": 920,
-        "quantity": 33,
-        "cateid": "C5"
     }
 ]
