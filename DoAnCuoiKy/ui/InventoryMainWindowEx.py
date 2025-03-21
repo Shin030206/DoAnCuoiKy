@@ -1,7 +1,7 @@
 import sys
 
 from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLineEdit, QTableWidget, QTableWidgetItem, QListWidgetItem, \
-    QListWidget
+    QListWidget, QPushButton
 
 from DoAnCuoiKy.libs.DataConnector import DataConnector
 from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
@@ -44,6 +44,8 @@ class InventoryMainWindowEx(Ui_MainWindow):
 
             # Kết nối sự kiện khi người dùng chọn một danh mục
             self.listWidgetCategory.itemSelectionChanged.connect(self.filter_products)
+            self.pushButtonSearchBill = self.MainWindow.findChild(QPushButton, "pushButtonSearchBill")
+            self.pushButtonSearchBill.clicked.connect(self.open_bill_summary)
 
         except Exception as e:
             QMessageBox.critical(self.MainWindow, "Lỗi hệ thống", f"Lỗi liên kết UI: {str(e)}")
@@ -110,6 +112,7 @@ class InventoryMainWindowEx(Ui_MainWindow):
         self.pushButtonNew.clicked.connect(self.xuly_moi)
         self.pushButtonAddProduct.clicked.connect(self.xuly_them)
         self.pushButtonRemoveProduct.clicked.connect(self.xuly_xoa)
+        self.pushButtonSearchBill.clicked.connect(self.open_bill_summary)
     def back_SalesWindow(self):
         from DoAnCuoiKy.ui.SalesMainWindowEx import SalesMainWindowEx
         self.MainWindow.close()
@@ -261,3 +264,14 @@ class InventoryMainWindowEx(Ui_MainWindow):
 
         except Exception as e:
             QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể hiển thị sản phẩm: {str(e)}")
+
+    def open_bill_summary(self):
+        """Mở cửa sổ BillSummary"""
+        try:
+            from DoAnCuoiKy.ui.BillSummaryEx import BillSummaryEx
+            self.bill_summary_window = QMainWindow()
+            self.bill_summary_ui = BillSummaryEx()
+            self.bill_summary_ui.setupUi(self.bill_summary_window)
+            self.bill_summary_window.show()
+        except Exception as e:
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể mở cửa sổ BillSummary: {str(e)}")
