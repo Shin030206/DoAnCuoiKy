@@ -15,6 +15,8 @@ class SalesMainWindowEx(Ui_MainWindow):
         self.products=self.dc.get_all_products()
         self.selected_cate = None
         self.selected_product = None
+        self.is_filtered = False  # Thêm biến trạng thái
+        self.last_filtered_cateid = None  # Theo dõi cateid đã lọc trước đó
         # Tạo QSpinBox để nhập số lượng
         self.spinBoxQuantity = QSpinBox()
         self.spinBoxQuantity.setMinimum(1)  # Giá trị tối thiểu là 1
@@ -29,7 +31,7 @@ class SalesMainWindowEx(Ui_MainWindow):
     def showWindow(self):
         self.MainWindow.show()
     def Signal(self):
-        self.listWidgetCategory.itemSelectionChanged.connect(self.filter_products)
+        self.listWidgetCategory.itemClicked.connect(self.filter_products)
         self.pushButtonInventory.clicked.connect(self.process_Inventory)
         self.pushButtonAddBill.clicked.connect(self.add_to_bill)
         self.pushButtonRemoveFromBill.clicked.connect(self.remove_from_bill)
@@ -89,32 +91,39 @@ class SalesMainWindowEx(Ui_MainWindow):
             self.tableWidgetProduct.setItem(row, 3, col_quantity)
             self.tableWidgetProduct.setItem(row, 4, col_cateid)
     def filter_products(self):
-        #get current selected index
-        row=self.listWidgetCategory.currentRow()
-        if row<0:#not found selected index
+        # Lấy chỉ số danh mục được chọn
+        row = self.listWidgetCategory.currentRow()
+        if row < 0:  # Không có danh mục nào được chọn
             return
-        self.selected_cate=self.categories[row]
-        #filter products by cate id
-        self.products=self.dc.get_product_bycategories(self.selected_cate.cateid)
-        #re-display products into QTableWidget
-        self.tableWidgetProduct.setRowCount(0)
-        for product in self.products:
-            # get number of row(meaning last index)
-            row = self.tableWidgetProduct.rowCount()
-            # insert new row(last row, at the end of row in the table)
-            self.tableWidgetProduct.insertRow(row)
-            col_proid = QTableWidgetItem(product.proid)
-            col_proname = QTableWidgetItem(product.proname)
-            col_price = QTableWidgetItem(str(product.price))
-            col_quantity = QTableWidgetItem(str(product.quantity))
-            col_cateid = QTableWidgetItem(str(product.cateid))
-            # set column for row:
-            self.tableWidgetProduct.setItem(row, 0, col_proid)
-            self.tableWidgetProduct.setItem(row, 1, col_proname)
-            self.tableWidgetProduct.setItem(row, 2, col_price)
-            self.tableWidgetProduct.setItem(row, 3, col_quantity)
-            self.tableWidgetProduct.setItem(row, 4, col_cateid)
 
+        self.selected_cate = self.categories[row]
+
+        # Kiểm tra trạng thái lọc
+        if self.is_filtered and self.last_filtered_cateid == self.selected_cate.cateid:
+            # Nếu đã lọc và nhấp lại vào cùng cateid, hiển thị toàn bộ sản phẩm
+            self.show_products_gui()
+            self.is_filtered = False
+            self.last_filtered_cateid = None
+        else:
+            # Nếu chưa lọc hoặc nhấp vào cateid khác, thực hiện lọc
+            self.selected_cate = self.selected_cate
+            self.products = self.dc.get_product_bycategories(self.selected_cate.cateid)
+            self.tableWidgetProduct.setRowCount(0)
+            for product in self.products:
+                row = self.tableWidgetProduct.rowCount()
+                self.tableWidgetProduct.insertRow(row)
+                col_proid = QTableWidgetItem(product.proid)
+                col_proname = QTableWidgetItem(product.proname)
+                col_price = QTableWidgetItem(str(product.price))
+                col_quantity = QTableWidgetItem(str(product.quantity))
+                col_cateid = QTableWidgetItem(str(product.cateid))
+                self.tableWidgetProduct.setItem(row, 0, col_proid)
+                self.tableWidgetProduct.setItem(row, 1, col_proname)
+                self.tableWidgetProduct.setItem(row, 2, col_price)
+                self.tableWidgetProduct.setItem(row, 3, col_quantity)
+                self.tableWidgetProduct.setItem(row, 4, col_cateid)
+            self.is_filtered = True
+            self.last_filtered_cateid = self.selected_cate.cateid
     def add_to_bill(self):
         try:
             # Kiểm tra hàng được chọn trong bảng sản phẩm
@@ -296,9 +305,9 @@ class SalesMainWindowEx(Ui_MainWindow):
             total_with_tax = total_before_tax * (1 + tax_rate)
             message += (
                 "--------------------------------\n"
-                f"Tổng tiền (trước thuế): {total_before_tax:,.0f}.000 VND\n"
-                f"Thuế VAT ({tax_rate * 100}%): {total_before_tax * tax_rate:,.0f}.000 VND\n"
-                f"TỔNG CỘNG: {total_with_tax:,.0f}.000 VND"
+                f"Tổng tiền (trước thuế): {total_before_tax:,.0f} VND\n"
+                f"Thuế VAT ({tax_rate * 100}%): {total_before_tax * tax_rate:,.0f} VND\n"
+                f"TỔNG CỘNG: {total_with_tax:,.0f} VND"
             )
 
             # Hiển thị hóa đơn
