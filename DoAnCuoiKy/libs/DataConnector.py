@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime
 
 from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
 from DoAnCuoiKy.models.Category import Category
@@ -33,9 +34,14 @@ class DataConnector:
 
     def get_bills_by_date_range(self, from_date, to_date):
         bills = self.get_all_bills()
-        from_date = from_date + " 00:00:00"
-        to_date = to_date + " 23:59:59"
-        return [bill for bill in bills if from_date <= bill["date_created"] <= to_date]
+        from_dt = datetime.strptime(from_date, "%Y-%m-%d")
+        to_dt = datetime.strptime(to_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+        filtered_bills = []
+        for bill in bills:
+            bill_dt = datetime.strptime(bill["date_created"], "%Y-%m-%d %H:%M:%S")
+            if from_dt <= bill_dt <= to_dt:
+                filtered_bills.append(bill)
+        return filtered_bills
 
     def get_bill_details(self, bill_id):
         bills = self.get_all_bills()
