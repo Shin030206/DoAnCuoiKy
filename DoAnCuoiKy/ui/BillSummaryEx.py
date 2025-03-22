@@ -97,11 +97,21 @@ class BillSummaryEx(Ui_MainWindow):
                 QMessageBox.warning(self.MainWindow, "Cảnh báo", "Không có bill nào để tính doanh thu!")
                 self.labelTienDoanhThu.setText("Tổng doanh thu: 0 VND")
                 return
-            self.total_revenue = sum(bill["total_amount"] for bill in self.bills)
+            # Kiểm tra và chuyển đổi total_amount thành float nếu cần
+            valid_bills = []
+            for bill in self.bills:
+                try:
+                    bill["total_amount"] = float(bill["total_amount"])
+                    valid_bills.append(bill)
+                except (ValueError, TypeError):
+                    print(f"Invalid total_amount in bill {bill['bill_id']}: {bill['total_amount']}")
+                    continue
+            if not valid_bills:
+                raise ValueError("Không có bill nào có tổng tiền hợp lệ!")
+            self.total_revenue = sum(bill["total_amount"] for bill in valid_bills)
             self.labelTienDoanhThu.setText(f"Tổng doanh thu: {self.total_revenue:,.2f} VND")
         except Exception as e:
             QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể tính doanh thu: {str(e)}")
-
     def view_bill_details(self):
         try:
             selected_row = self.tableWidgetDanhSachBill.currentRow()
