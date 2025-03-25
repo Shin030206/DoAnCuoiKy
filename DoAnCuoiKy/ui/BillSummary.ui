@@ -201,7 +201,17 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
              }</string>
      </property>
      <property name="text">
-      <string>Xuất WORD/ PDF</string>
+      <string>Xuất Excel</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../images/4373169_excel_logo_logos_icon.png</normaloff>../../../images/4373169_excel_logo_logos_icon.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
      </property>
     </widget>
    </widget>
