@@ -103,6 +103,10 @@ class Ui_MainWindow(object):
 "             QPushButton:pressed {\n"
 "                 background-color: #AAB99A;\n"
 "             }")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../images/4373169_excel_logo_logos_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButtonExport.setIcon(icon)
+        self.pushButtonExport.setIconSize(QtCore.QSize(40, 40))
         self.pushButtonExport.setObjectName("pushButtonExport")
         self.frame_2 = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(20, 230, 1001, 371))
@@ -205,9 +209,9 @@ class Ui_MainWindow(object):
 "                 background-color: #CC0000;\n"
 "             }\n"
 "            ")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButtonClose.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButtonClose.setIcon(icon1)
         self.pushButtonClose.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonClose.setObjectName("pushButtonClose")
         self.pushButtonTinhDoanhThu = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -226,9 +230,9 @@ class Ui_MainWindow(object):
 "             QPushButton:pressed {\n"
 "                 background-color: #FFAB5B;\n"
 "             }")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButtonTinhDoanhThu.setIcon(icon1)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButtonTinhDoanhThu.setIcon(icon2)
         self.pushButtonTinhDoanhThu.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonTinhDoanhThu.setObjectName("pushButtonTinhDoanhThu")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -250,7 +254,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Từ ngày"))
         self.label_3.setText(_translate("MainWindow", "Đến ngày:"))
         self.pushButtonLoc.setText(_translate("MainWindow", "Lọc"))
-        self.pushButtonExport.setText(_translate("MainWindow", "Xuất WORD/ PDF"))
+        self.pushButtonExport.setText(_translate("MainWindow", "Xuất Excel"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">Danh sách Bill</span></p></body></html>"))
         item = self.tableWidgetDanhSachBill.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
