@@ -5,4 +5,4 @@ class Employee:
         self.UserName=UserName
         self.PassWord=PassWord
     def __str__(self):
-        return f'{self.EmployeeId}\t{self.EmployeeName}'
+        return f'{self.UserName}\t{self.PassWord}'
