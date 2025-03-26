@@ -3,7 +3,7 @@
         "proid": "P1",
         "proname": "Mỳ Ý",
         "price": 49000,
-        "quantity": 30,
+        "quantity": 29,
         "cateid": "C1"
     },
     {
@@ -31,7 +31,7 @@
         "proid": "P5",
         "proname": "Khoai Tây Chiên",
         "price": 25000,
-        "quantity": 60,
+        "quantity": 59,
         "cateid": "C1"
     },
     {
@@ -66,7 +66,7 @@
         "proid": "P10",
         "proname": "Burger Bò",
         "price": 59000,
-        "quantity": 35,
+        "quantity": 34,
         "cateid": "C2"
     },
     {

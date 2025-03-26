@@ -58,5 +58,32 @@
             }
         ],
         "total": 800.2800000000001
+    },
+    {
+        "datetime": "2025-03-22 21:46:29",
+        "items": [
+            {
+                "proid": "P1",
+                "proname": "Mỳ Ý",
+                "quantity": 1,
+                "price": 49000,
+                "total": 49000
+            },
+            {
+                "proid": "P5",
+                "proname": "Khoai Tây Chiên",
+                "quantity": 1,
+                "price": 25000,
+                "total": 25000
+            },
+            {
+                "proid": "P10",
+                "proname": "Burger Bò",
+                "quantity": 1,
+                "price": 59000,
+                "total": 59000
+            }
+        ],
+        "total": 143640.0
     }
 ]
