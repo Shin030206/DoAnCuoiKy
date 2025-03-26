@@ -13,7 +13,7 @@ class JsonFileFactory:
         json_file=open(filename,'w',encoding='utf-8')
         json_file.write(json_string)
         json_file.close()
-    def read_data(self,filename,ClassName):
+    def read_data(self,filename,ClassName=None):
         """
         Hàm đọc jsonstring và phục hồi lại mô hình lớp ClassName
         với ClassName là tên lớp được chỉ định phục hồi OOP
