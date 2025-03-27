@@ -61,9 +61,9 @@
     <widget class="QFrame" name="frame">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>0</y>
-       <width>561</width>
+       <width>601</width>
        <height>121</height>
       </rect>
      </property>
@@ -90,7 +90,7 @@
        <rect>
         <x>109</x>
         <y>40</y>
-        <width>111</width>
+        <width>121</width>
         <height>41</height>
        </rect>
       </property>
@@ -118,7 +118,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>230</x>
         <y>30</y>
         <width>111</width>
         <height>61</height>
@@ -135,9 +135,9 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QDateEdit" name="dateEditTo">
       <property name="geometry">
        <rect>
-        <x>329</x>
+        <x>340</x>
         <y>40</y>
-        <width>111</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -148,7 +148,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QPushButton" name="pushButtonLoc">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>490</x>
         <y>40</y>
         <width>81</width>
         <height>41</height>
@@ -178,9 +178,9 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="pushButtonExport">
      <property name="geometry">
       <rect>
-       <x>570</x>
+       <x>600</x>
        <y>30</y>
-       <width>411</width>
+       <width>381</width>
        <height>61</height>
       </rect>
      </property>
@@ -205,7 +205,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../images/4373169_excel_logo_logos_icon.png</normaloff>../../../images/4373169_excel_logo_logos_icon.png</iconset>
+       <normaloff>../images/4373169_excel_logo_logos_icon.png</normaloff>../images/4373169_excel_logo_logos_icon.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -423,7 +423,7 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png</normaloff>../../../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png</iconset>
+      <normaloff>../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png</normaloff>../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -462,7 +462,7 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png</normaloff>../../../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png</iconset>
+      <normaloff>../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png</normaloff>../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>
