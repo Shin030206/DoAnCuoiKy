@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'D:\Kĩ Thuật Lập Trình\ĐoAnCuoiKy\DoAnCuoiKy\DoAnCuoiKy\ui\bill summary.ui'
+# Form implementation generated from reading ui file 'D:\DoAnCuoiKy\DoAnCuoiKy\ui\BillSummary.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
         self.frame = QtWidgets.QFrame(parent=self.groupBox)
-        self.frame.setGeometry(QtCore.QRect(10, 0, 561, 121))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 601, 121))
         self.frame.setStyleSheet("QFrame {\n"
 "   \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
         self.dateEditFrom = QtWidgets.QDateEdit(parent=self.frame)
-        self.dateEditFrom.setGeometry(QtCore.QRect(109, 40, 111, 41))
+        self.dateEditFrom.setGeometry(QtCore.QRect(109, 40, 121, 41))
         self.dateEditFrom.setStyleSheet("color: rgb(0, 0, 0);")
         self.dateEditFrom.setObjectName("dateEditFrom")
         self.label_2 = QtWidgets.QLabel(parent=self.frame)
@@ -62,16 +62,16 @@ class Ui_MainWindow(object):
 "font: 10pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(parent=self.frame)
-        self.label_3.setGeometry(QtCore.QRect(220, 30, 111, 61))
+        self.label_3.setGeometry(QtCore.QRect(230, 30, 111, 61))
         self.label_3.setStyleSheet("color: rgb(0, 0, 0);\n"
 "font: 10pt \"MS Shell Dlg 2\";")
         self.label_3.setObjectName("label_3")
         self.dateEditTo = QtWidgets.QDateEdit(parent=self.frame)
-        self.dateEditTo.setGeometry(QtCore.QRect(329, 40, 111, 41))
+        self.dateEditTo.setGeometry(QtCore.QRect(340, 40, 131, 41))
         self.dateEditTo.setStyleSheet("color: rgb(0, 0, 0);")
         self.dateEditTo.setObjectName("dateEditTo")
         self.pushButtonLoc = QtWidgets.QPushButton(parent=self.frame)
-        self.pushButtonLoc.setGeometry(QtCore.QRect(460, 40, 81, 41))
+        self.pushButtonLoc.setGeometry(QtCore.QRect(490, 40, 81, 41))
         self.pushButtonLoc.setStyleSheet("QPushButton {\n"
 "    font: 10pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
 "             }")
         self.pushButtonLoc.setObjectName("pushButtonLoc")
         self.pushButtonExport = QtWidgets.QPushButton(parent=self.groupBox)
-        self.pushButtonExport.setGeometry(QtCore.QRect(570, 30, 411, 61))
+        self.pushButtonExport.setGeometry(QtCore.QRect(600, 30, 381, 61))
         self.pushButtonExport.setStyleSheet("QPushButton {\n"
 "    font: 12pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
 "                 background-color: #AAB99A;\n"
 "             }")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../images/4373169_excel_logo_logos_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("D:\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../images/4373169_excel_logo_logos_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButtonExport.setIcon(icon)
         self.pushButtonExport.setIconSize(QtCore.QSize(40, 40))
         self.pushButtonExport.setObjectName("pushButtonExport")
@@ -210,7 +210,7 @@ class Ui_MainWindow(object):
 "             }\n"
 "            ")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("D:\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../Download/619539_close_delete_dismiss_exit_cancel_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButtonClose.setIcon(icon1)
         self.pushButtonClose.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonClose.setObjectName("pushButtonClose")
@@ -231,7 +231,7 @@ class Ui_MainWindow(object):
 "                 background-color: #FFAB5B;\n"
 "             }")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("D:\\Kĩ Thuật Lập Trình\\ĐoAnCuoiKy\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("D:\\DoAnCuoiKy\\DoAnCuoiKy\\ui\\../../../Download/2530794_accounting_calculate_calculation_calculator_general_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButtonTinhDoanhThu.setIcon(icon2)
         self.pushButtonTinhDoanhThu.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonTinhDoanhThu.setObjectName("pushButtonTinhDoanhThu")
