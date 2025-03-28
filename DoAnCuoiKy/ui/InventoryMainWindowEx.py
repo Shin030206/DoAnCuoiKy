@@ -1,3 +1,4 @@
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLineEdit, QTableWidget, QTableWidgetItem, QListWidgetItem, QListWidget, QPushButton
 from DoAnCuoiKy.libs.DataConnector import DataConnector
 from DoAnCuoiKy.libs.JsonFileFactory import JsonFileFactory
@@ -71,13 +72,23 @@ class InventoryMainWindowEx(Ui_MainWindow):
         for product in self.products:
             row = self.tableWidgetProduct.rowCount()
             self.tableWidgetProduct.insertRow(row)
-            self.tableWidgetProduct.setItem(row, 0, QTableWidgetItem(product.proid))
-            self.tableWidgetProduct.setItem(row, 1, QTableWidgetItem(product.proname))
-            self.tableWidgetProduct.setItem(row, 2, QTableWidgetItem(f"{product.price:,.2f}"))
-            self.tableWidgetProduct.setItem(row, 3, QTableWidgetItem(str(product.quantity)))
-            self.tableWidgetProduct.setItem(row, 4, QTableWidgetItem(product.cateid))
+            col_proid = QTableWidgetItem(product.proid)
+            col_proname = QTableWidgetItem(product.proname)
+            col_price = QTableWidgetItem(str(product.price))
+            col_quantity = QTableWidgetItem(str(product.quantity))
+            col_cateid = QTableWidgetItem(str(product.cateid))
+            self.tableWidgetProduct.setItem(row, 0, col_proid)
+            self.tableWidgetProduct.setItem(row, 1, col_proname)
+            self.tableWidgetProduct.setItem(row, 2, col_price)
+            self.tableWidgetProduct.setItem(row, 3, col_quantity)
+            self.tableWidgetProduct.setItem(row, 4, col_cateid)
             self.total_quantity += product.quantity
-
+            if product.quantity < 10:
+                col_proid.setBackground(Qt.GlobalColor.red)
+                col_proname.setBackground(Qt.GlobalColor.red)
+                col_price.setBackground(Qt.GlobalColor.red)
+                col_quantity.setBackground(Qt.GlobalColor.red)
+                col_cateid.setBackground(Qt.GlobalColor.red)
     def show_products_gui(self):
         self.tableWidgetProduct.setRowCount(0)
         self.products = self.dc.get_all_products()

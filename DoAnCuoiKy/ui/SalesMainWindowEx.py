@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from PyQt6 import QtWidgets
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QTableWidgetItem, QListWidgetItem, QMessageBox, QSpinBox
 
 from DoAnCuoiKy.libs.DataConnector import DataConnector
@@ -90,6 +91,12 @@ class SalesMainWindowEx(Ui_MainWindow):
             self.tableWidgetProduct.setItem(row, 2, col_price)
             self.tableWidgetProduct.setItem(row, 3, col_quantity)
             self.tableWidgetProduct.setItem(row, 4, col_cateid)
+            if product.quantity<10:
+                col_proid.setBackground(Qt.GlobalColor.red)
+                col_proname.setBackground(Qt.GlobalColor.red)
+                col_price.setBackground(Qt.GlobalColor.red)
+                col_quantity.setBackground(Qt.GlobalColor.red)
+                col_cateid.setBackground(Qt.GlobalColor.red)
     def filter_products(self):
         # Lấy chỉ số danh mục được chọn
         row = self.listWidgetCategory.currentRow()
