@@ -48,6 +48,7 @@ class InventoryMainWindowEx(Ui_MainWindow):
         self.tableWidgetProduct.setColumnWidth(2, 150)
         self.tableWidgetProduct.setColumnWidth(3, 100)
         self.tableWidgetProduct.setColumnWidth(4, 150)
+        self.tableWidgetProduct.setSelectionMode(QTableWidget.SelectionMode.ExtendedSelection)
 
     def Signal(self):
         self.listWidgetCategory.itemClicked.connect(self.filter_products)
@@ -123,19 +124,48 @@ class InventoryMainWindowEx(Ui_MainWindow):
             self.last_filtered_cateid = current_cateid
 
     def display_product_info(self, row, column):
+        """
+        Hiển thị thông tin sản phẩm khi chọn một dòng trong bảng.
+        Nếu chọn nhiều sản phẩm, sẽ xóa thông tin hiện tại trên form.
+        """
         try:
-            product_id = self.tableWidgetProduct.item(row, 0).text()
-            product_name = self.tableWidgetProduct.item(row, 1).text()
-            product_price = self.tableWidgetProduct.item(row, 2).text()
-            product_quantity = self.tableWidgetProduct.item(row, 3).text()
-            product_cate_id = self.tableWidgetProduct.item(row, 4).text()
-            self.lineEditProID.setText(product_id)
-            self.lineEditProName.setText(product_name)
-            self.lineEditPrice.setText(product_price)
-            self.lineEditQuantity.setText(product_quantity)
-            self.lineEditCateID.setText(product_cate_id)
+            # Kiểm tra số lượng sản phẩm được chọn
+            selected_items = self.tableWidgetProduct.selectedItems()
+
+            # Nếu chỉ có 1 sản phẩm được chọn (1 dòng duy nhất)
+            if len(selected_items) == 1:
+                # Lấy thông tin từ các cột của dòng được chọn
+                product_id = self.tableWidgetProduct.item(row, 0).text()
+                product_name = self.tableWidgetProduct.item(row, 1).text()
+                product_price = self.tableWidgetProduct.item(row, 2).text()
+                product_quantity = self.tableWidgetProduct.item(row, 3).text()
+                product_cate_id = self.tableWidgetProduct.item(row, 4).text()
+
+                # Hiển thị lên các ô nhập liệu tương ứng
+                self.lineEditProID.setText(product_id)
+                self.lineEditProName.setText(product_name)
+                self.lineEditPrice.setText(product_price)
+                self.lineEditQuantity.setText(product_quantity)
+                self.lineEditCateID.setText(product_cate_id)
+
+            # Nếu chọn nhiều sản phẩm hoặc không chọn
+            else:
+                # Xóa thông tin hiện tại trên form
+                self.lineEditProID.clear()
+                self.lineEditProName.clear()
+                self.lineEditPrice.clear()
+                self.lineEditQuantity.clear()
+                self.lineEditCateID.clear()
+
         except Exception as e:
-            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể hiển thị thông tin sản phẩm: {str(e)}")
+            # Xử lý lỗi nếu có
+            QMessageBox.critical(
+                self.MainWindow,
+                "Lỗi hiển thị thông tin",
+                f"Không thể hiển thị thông tin sản phẩm: {str(e)}"
+            )
+            # Đảm bảo form được xóa sạch khi có lỗi
+            self.xuly_moi()
 
     def xuly_moi(self):
         self.lineEditProID.clear()
@@ -180,22 +210,47 @@ class InventoryMainWindowEx(Ui_MainWindow):
 
     def xuly_xoa(self):
         try:
-            selected_row = self.tableWidgetProduct.currentRow()
-            if selected_row < 0:
-                QMessageBox.warning(self.MainWindow, "Cảnh báo", "Vui lòng chọn sản phẩm để xóa!")
+            # Lấy tất cả các dòng đã chọn (không trùng lặp)
+            selected_rows = set()
+            for item in self.tableWidgetProduct.selectedItems():
+                selected_rows.add(item.row())
+
+            if not selected_rows:
+                QMessageBox.warning(self.MainWindow, "Cảnh báo", "Vui lòng chọn ít nhất một sản phẩm để xóa!")
                 return
 
-            proid = self.tableWidgetProduct.item(selected_row, 0).text()
-            products = self.dc.get_all_products()
-            products = [p for p in products if p.proid != proid]
-            jff = JsonFileFactory()
-            jff.write_data(products, "../dataset/products.json")
-            self.products = products
-            self.load_products()
-            QMessageBox.information(self.MainWindow, "Thành công", "Đã xóa sản phẩm!")
-        except Exception as e:
-            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể xóa sản phẩm: {str(e)}")
+            # Xác nhận xóa
+            confirm = QMessageBox.question(
+                self.MainWindow,
+                "Xác nhận xóa",
+                f"Bạn có chắc muốn xóa {len(selected_rows)} sản phẩm đã chọn?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+            )
 
+            if confirm == QMessageBox.StandardButton.No:
+                return
+
+            # Lọc ra các sản phẩm cần giữ lại
+            products = self.dc.get_all_products()
+            proids_to_remove = {
+                self.tableWidgetProduct.item(row, 0).text()  # Lấy proid từ cột 0 của mỗi dòng
+                for row in selected_rows
+            }
+
+            # Giữ lại sản phẩm không nằm trong danh sách xóa
+            updated_products = [p for p in products if p.proid not in proids_to_remove]
+
+            # Lưu dữ liệu mới
+            jff = JsonFileFactory()
+            jff.write_data(updated_products, "../dataset/products.json")
+
+            # Cập nhật giao diện
+            self.products = updated_products
+            self.load_products()
+            QMessageBox.information(self.MainWindow, "Thành công", f"Đã xóa {len(proids_to_remove)} sản phẩm!")
+
+        except Exception as e:
+            QMessageBox.critical(self.MainWindow, "Lỗi", f"Không thể xóa: {str(e)}")
     def back_SalesWindow(self):
         from DoAnCuoiKy.ui.SalesMainWindowEx import SalesMainWindowEx
         self.MainWindow.close()
